@@ -719,7 +719,7 @@
       <h2 class="title anim" style="--d:.12s">Verifiable rewards.</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the loss highlighted. In LLM pretraining the next token is the label and cross-entropy is the loss. The update is gradient descent.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the loss highlighted. The examples show different labels, losses, and update mechanisms.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -744,7 +744,7 @@
         <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
         <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
-        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update · gradient descent</text>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update</text>
       </svg>
       <div class="edge-legend anim" style="--d:.42s">
         <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>
@@ -766,27 +766,35 @@
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">loss</span>
-              <span class="reward-example__v">−log p(Paris | input)</span>
+              <span class="reward-example__v">next-token error</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">update</span>
+              <span class="reward-example__v">gradient descent</span>
             </div>
           </div>
         </div>
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Image classification</span>
-            <span>ImageNet</span>
+            <span class="reward-example__title">Decision tree</span>
+            <span>tabular</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
               <span class="reward-example__k">input</span>
-              <span class="reward-example__v">image</span>
+              <span class="reward-example__v">income, credit</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">label</span>
-              <span class="reward-example__v reward-example__v--accent">cat</span>
+              <span class="reward-example__v reward-example__v--accent">approve</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">loss</span>
-              <span class="reward-example__v">−log p(cat | image)</span>
+              <span class="reward-example__v">misclassification</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">update</span>
+              <span class="reward-example__v">split on best feature</span>
             </div>
           </div>
         </div>
