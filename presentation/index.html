@@ -324,7 +324,7 @@
     stroke-width:1.15;
   }
   .d-box--accent{ fill:var(--accent-soft); stroke:var(--accent); }
-  .d-box--human{ fill:rgba(210,69,30,.025); stroke:var(--line-strong); stroke-dasharray:4 4; }
+  .d-box--human{ fill:rgba(210,69,30,.045); stroke:var(--line-strong); stroke-width:1.5; }
   .d-title{
     font-family:var(--sans);
     font-size:19px;
@@ -383,42 +383,6 @@
   .pulse{ animation:dashMove 1.4s linear infinite; }
   @keyframes dashMove{ to{ stroke-dashoffset:-28; } }
 
-  .d-ghost{
-    fill:none;
-    stroke:var(--faint);
-    stroke-width:1.3;
-    stroke-dasharray:5 7;
-    opacity:.68;
-  }
-  .d-ghost-num{
-    font-family:var(--mono);
-    font-size:11px;
-    font-weight:600;
-    fill:var(--faint);
-    opacity:.9;
-  }
-  .d-ghost-text{
-    font-family:var(--sans);
-    font-size:17px;
-    font-weight:600;
-    fill:var(--faint);
-    opacity:.9;
-  }
-  .d-ghost-sub{
-    font-family:var(--mono);
-    font-size:9px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    fill:var(--faint);
-    opacity:.8;
-  }
-  .ring-ghost{
-    fill:none;
-    stroke:var(--line-strong);
-    stroke-width:1.4;
-    stroke-dasharray:4 8;
-    opacity:.85;
-  }
 
   /* ---------- examples ---------- */
   .example-row{
@@ -624,9 +588,6 @@
       <path d="M0,0 L10,5 L0,10 z" fill="#d2451e"></path>
     </marker>
     <marker id="arw-dim" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#c9c0b6"></path>
-    </marker>
-    <marker id="arw-ghost" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#c9c0b6"></path>
     </marker>
     <marker id="arw-human" viewBox="0 0 10 10" refX="7.5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -1130,10 +1091,6 @@ const FEEDBACK = {
   obs:    { d:'M520,504 V310 Q520,290 495,290 V174', lx:548, ly:284 }
 };
 
-const RING_PATH = 'M220,130 H980 Q1060,130 1060,210 V460 Q1060,540 980,540 H220 Q140,540 140,460 V210 Q140,130 220,130 Z';
-const GHOST_AFTER_ACCEPT = ['review','qa','ship','obs'];
-const GHOST_AFTER_REVIEW = ['qa','ship','obs'];
-const GHOST_AFTER_QA = ['ship','obs'];
 const HUMAN_EDGES = new Set(['intent-agent','accept-ship']);
 
 function legendHTML(kind){
@@ -1158,8 +1115,6 @@ const STAGES = {
     edges:['intent-agent','agent-codebase','codebase-check','check-accept'],
     accentEdges:['codebase-check','check-accept'],
     feedback:[{key:'check', current:true, label:'fail → fix'}],
-    ghosts:GHOST_AFTER_ACCEPT,
-    scaffold:true,
     returnFrom:'accept',
     aria:'The checks are the verifier. The human accept stays in the loop before ship.'
   },
@@ -1170,8 +1125,6 @@ const STAGES = {
     edges:['intent-agent','agent-codebase','codebase-check','check-review','review-accept'],
     accentEdges:['check-review','review-accept'],
     feedback:[{key:'check', current:false},{key:'review', current:true, label:'review notes'}],
-    ghosts:GHOST_AFTER_REVIEW,
-    scaffold:true,
     returnFrom:'accept',
     aria:'A review agent is added as another verifier. The human accept stays.'
   },
@@ -1182,8 +1135,6 @@ const STAGES = {
     edges:['intent-agent','agent-codebase','codebase-check','check-review','review-qa','qa-accept'],
     accentEdges:['review-qa','qa-accept'],
     feedback:[{key:'check', current:false},{key:'review', current:false},{key:'qa', current:true, label:'issues'}],
-    ghosts:GHOST_AFTER_QA,
-    scaffold:true,
     returnFrom:'accept',
     aria:'Product QA is added as another verifier. The human accept stays.'
   },
@@ -1194,7 +1145,6 @@ const STAGES = {
     edges:['intent-agent','agent-codebase','codebase-check','check-review','review-qa','qa-accept','accept-ship','ship-obs'],
     accentEdges:['accept-ship','ship-obs'],
     feedback:[{key:'check', current:false},{key:'review', current:false},{key:'qa', current:false},{key:'obs', current:true, label:'signals'}],
-    scaffold:true,
     aria:'Observability is added after ship. Its signals return to the agent. The human accept is before ship.'
   },
 };
@@ -1203,15 +1153,6 @@ function nodeSVG(key, state){
   const n = NODES[key];
   const w = n.w || 220;
   const cx = n.x, cy = n.y;
-
-  if(state === 'ghost'){
-    let inner = `<text x="${cx}" y="${cy+4}" text-anchor="middle" class="d-ghost-num">${n.num}</text>`;
-    if(key === 'accept'){
-      inner = `<text x="${cx}" y="${cy-4}" text-anchor="middle" class="d-ghost-text">Accept</text>
-               <text x="${cx}" y="${cy+14}" text-anchor="middle" class="d-ghost-sub">human</text>`;
-    }
-    return `<rect class="d-ghost" x="${cx-w/2}" y="${cy-38}" width="${w}" height="76" rx="38"></rect>${inner}`;
-  }
 
   const rectClass = state === 'current'
     ? 'd-box d-box--accent'
@@ -1244,10 +1185,6 @@ function renderStage(config){
   let svg = `<svg class="diagram" viewBox="${config.vb}" role="img" aria-label="${config.aria}">`;
   svg += `<g>`;
 
-  if(config.scaffold){
-    svg += `<path class="ring-ghost" d="${RING_PATH}"></path>`;
-  }
-
   (config.edges || []).forEach(key => {
     const accent = (config.accentEdges || []).includes(key);
     const human = HUMAN_EDGES.has(key);
@@ -1261,8 +1198,6 @@ function renderStage(config){
   }
 
   (config.feedback || []).forEach(f => { svg += feedbackSVG(f); });
-
-  (config.ghosts || []).forEach(k => { svg += nodeSVG(k, 'ghost'); });
 
   (config.nodes || []).forEach(([k, state]) => { svg += nodeSVG(k, state); });
 
