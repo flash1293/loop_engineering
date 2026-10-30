@@ -114,6 +114,43 @@
   .dots__dot[aria-current="true"]{ width:20px; background:var(--accent); opacity:1; }
   .dots__dot:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 
+  /* ---------- interlude ---------- */
+  .slide.slide--interlude{
+    display:flex; align-items:center; justify-content:center;
+    background:var(--accent);
+    color:#fff;
+    padding:clamp(36px,7vw,110px);
+  }
+  .interlude__text{
+    margin:0;
+    max-width:18ch;
+    font-family:var(--sans);
+    font-size:clamp(44px,6.4vw,92px);
+    line-height:.98;
+    letter-spacing:-.045em;
+    font-weight:640;
+    color:#fff;
+    text-align:center;
+    text-wrap:balance;
+  }
+  body.is-interlude .progress{ background:rgba(255,255,255,.18); }
+  body.is-interlude .progress__fill{ background:#fff; }
+  body.is-interlude .dots__dot{ background:rgba(255,255,255,.6); opacity:.55; }
+  body.is-interlude .dots__dot[aria-current="true"]{ background:#fff; opacity:1; }
+  body.is-interlude .nav__count{ color:rgba(255,255,255,.82); }
+  body.is-interlude .nav__btn{
+    color:#fff;
+    border-color:rgba(255,255,255,.38);
+    background:rgba(255,255,255,.1);
+  }
+  body.is-interlude .nav__btn:hover{
+    color:var(--accent);
+    border-color:#fff;
+    background:#fff;
+  }
+  body.is-interlude .nav__btn:focus-visible,
+  body.is-interlude .dots__dot:focus-visible{ outline-color:#fff; }
+
   /* ---------- slides ---------- */
   .slide{
     position:absolute;
@@ -454,6 +491,35 @@
     white-space:nowrap;
   }
   .reward-example__v--accent{ color:var(--accent); font-weight:700; }
+
+  /* ---------- formal proof example ---------- */
+  .proof-example{
+    width:min(1000px,100%);
+    margin-top:clamp(10px,1.8vh,18px);
+    padding-top:clamp(10px,1.6vh,16px);
+    border-top:1px solid var(--line-strong);
+  }
+  .proof-example__head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .proof-example__title{ color:var(--accent); font-weight:700; }
+  .proof-example pre{
+    margin:9px 0 0;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    background:rgba(255,253,248,.55);
+    font-family:var(--mono);
+    font-size:clamp(12px,1.05vw,14px);
+    line-height:1.55;
+    color:var(--ink);
+    overflow:auto;
+    white-space:pre;
+  }
 
   /* ---------- edge legend + RSI facts ---------- */
   .edge-legend{
@@ -1006,6 +1072,11 @@
     </div>
   </section>
 
+  <!-- 13 · INTERLUDE -->
+  <section class="slide slide--interlude" data-title="Iterative improvement" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s">iterative improvement<br>on verifiable rewards</h2>
+  </section>
+
   <!-- 13 · AI SRE -->
   <section class="slide" data-title="AI SRE" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
@@ -1067,10 +1138,60 @@
     </footer>
   </section>
 
-  <!-- 14 · POINT THE LOOP AT ITSELF -->
-  <section class="slide" data-title="Recursive self-improvement" aria-hidden="true">
+  <!-- 14 · FORMAL THEOREM PROVING -->
+  <section class="slide" data-title="Formal theorem proving" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">13</span><span class="kicker__rule"></span></div>
+    </header>
+    <div>
+      <h2 class="title anim" style="--d:.12s">Formal theorem proving.</h2>
+    </div>
+    <div class="stage">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="Formal theorem-proving loop: theorem to prover to proof to kernel, with a reject-and-edit feedback edge.">
+        <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
+        <text x="173" y="136" class="d-title">Theorem</text>
+
+        <rect class="d-box" x="365" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="399" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
+        <text x="423" y="136" class="d-title">Prover</text>
+
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
+        <text x="673" y="136" class="d-title">Proof</text>
+
+        <rect class="d-box d-box--accent" x="865" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="899" cy="130" r="13.5" fill="rgba(210,69,30,.16)"></circle>
+        <text x="899" y="134" text-anchor="middle" class="d-num">04</text>
+        <text x="923" y="136" class="d-title">Kernel</text>
+
+        <path class="flow" d="M335,130 H359" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
+        <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">reject → edit</text>
+      </svg>
+      <div class="proof-example anim" style="--d:.42s">
+        <div class="proof-example__head">
+          <span class="proof-example__title">Lean 4</span>
+          <span>kernel: accept</span>
+        </div>
+        <pre><code>theorem add_zero (n : Nat) : n + 0 = n := by
+  simp</code></pre>
+      </div>
+    </div>
+    <footer class="foot anim" style="--d:.55s">
+      <p class="note">Source: <a class="text-link" href="https://lean-lang.org/" target="_blank" rel="noopener">Lean 4</a>; <a class="text-link" href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank" rel="noopener">AlphaProof</a>.</p>
+    </footer>
+  </section>
+
+  <!-- 15 · POINT THE LOOP AT ITSELF -->
+  <section class="slide" data-title="Recursive self-improvement" aria-hidden="true">
+    <header class="head anim" style="--d:.05s">
+      <div class="kicker"><span class="kicker__num">14</span><span class="kicker__rule"></span></div>
     </header>
     <div>
       <h2 class="title anim" style="--d:.12s">Recursive self-improvement.</h2>
@@ -1114,10 +1235,10 @@
     </footer>
   </section>
 
-  <!-- 15 · QR -->
+  <!-- 16 · QR -->
   <section class="slide" data-title="Open the deck" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">14</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">15</span><span class="kicker__rule"></span></div>
     </header>
     <div>
       <h2 class="title anim" style="--d:.12s">Scan to open.</h2>
@@ -1139,7 +1260,7 @@
 <div class="dots" id="dots" role="tablist" aria-label="Slides"></div>
 
 <div class="nav">
-  <span class="nav__count" id="navCount">01 / 15</span>
+  <span class="nav__count" id="navCount">01 / 17</span>
   <button class="nav__btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3 L5 8 L10 13"></path></svg>
   </button>
@@ -1345,6 +1466,7 @@ document.querySelectorAll('.workflow').forEach(el => {
       dot.setAttribute('aria-current', i === current ? 'true' : 'false');
       dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
     });
+    document.body.classList.toggle('is-interlude', slides[current].classList.contains('slide--interlude'));
     progressFill.style.transform = 'scaleX(' + ((current + 1) / slides.length) + ')';
     navCount.textContent = pad(current + 1) + ' / ' + pad(slides.length);
     const hash = '#' + (current + 1);
