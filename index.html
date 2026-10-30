@@ -403,7 +403,7 @@
   @keyframes dashMove{ to{ stroke-dashoffset:-28; } }
 
 
-  /* ---------- verifiable-reward examples ---------- */
+  /* ---------- verifiable-reward + human examples ---------- */
   .reward-examples{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -413,6 +413,7 @@
     padding-top:clamp(10px,1.6vh,16px);
     border-top:1px solid var(--line-strong);
   }
+  .reward-examples--single{ grid-template-columns:1fr; width:min(1040px,100%); }
   .reward-example{ min-width:0; }
   .reward-example__head{
     display:flex; align-items:baseline; justify-content:space-between; gap:12px;
@@ -812,6 +813,32 @@
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="human"></div>
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Coding task</span>
+            <span>human correction</span>
+          </div>
+          <div class="reward-example__rows">
+            <div class="reward-example__row">
+              <span class="reward-example__k">task</span>
+              <span class="reward-example__v">add rate limiting to /login</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">agent</span>
+              <span class="reward-example__v">in-memory counter</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">you</span>
+              <span class="reward-example__v">must work across pods</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">correction</span>
+              <span class="reward-example__v reward-example__v--accent">use Redis</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1158,7 +1185,7 @@ function legendHTML(kind){
 
 const STAGES = {
   'human': {
-    vb:'100 40 1000 420',
+    vb:'100 40 1000 220',
     nodes:[['intent','normal'],['agent','normal'],['codebase','normal'],['checkHuman','current']],
     edges:['intent-agent','agent-codebase','codebase-check'],
     accentEdges:['agent-codebase','codebase-check'],
