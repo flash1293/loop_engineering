@@ -403,15 +403,19 @@
   @keyframes dashMove{ to{ stroke-dashoffset:-28; } }
 
 
-  /* ---------- pretraining example ---------- */
-  .reward-example{
-    width:min(960px,100%);
+  /* ---------- verifiable-reward examples ---------- */
+  .reward-examples{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:clamp(14px,2vw,24px);
+    width:min(1040px,100%);
     margin-top:clamp(10px,1.8vh,18px);
     padding-top:clamp(10px,1.6vh,16px);
     border-top:1px solid var(--line-strong);
   }
+  .reward-example{ min-width:0; }
   .reward-example__head{
-    display:flex; align-items:baseline; gap:12px;
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
     font-family:var(--mono);
     font-size:9.5px;
     letter-spacing:.14em;
@@ -419,22 +423,21 @@
     color:var(--muted);
   }
   .reward-example__title{ color:var(--accent); font-weight:700; }
-  .reward-example__row{
-    display:grid;
-    grid-template-columns:1.55fr .6fr 1fr;
-    margin-top:10px;
+  .reward-example__rows{
+    margin-top:8px;
     border:1px solid var(--line);
     background:rgba(255,253,248,.55);
   }
-  .reward-example__cell{
-    min-width:0;
-    padding:12px 16px;
-    border-left:1px solid var(--line);
+  .reward-example__row{
+    display:grid;
+    grid-template-columns:74px minmax(0,1fr);
+    gap:12px;
+    padding:9px 14px;
+    border-top:1px solid var(--line);
   }
-  .reward-example__cell:first-child{ border-left:0; }
+  .reward-example__row:first-child{ border-top:0; }
   .reward-example__k{
-    display:block;
-    margin-bottom:4px;
+    padding-top:2px;
     font-family:var(--mono);
     font-size:9px;
     letter-spacing:.13em;
@@ -442,7 +445,7 @@
     color:var(--muted);
   }
   .reward-example__v{
-    display:block;
+    min-width:0;
     font-family:var(--mono);
     font-size:clamp(12px,1.05vw,14px);
     letter-spacing:-.01em;
@@ -599,9 +602,7 @@
     .nav{ bottom:18px; }
     .chip{ display:none; }
     .diagram{ max-height:46vh; }
-    .reward-example__row{ grid-template-columns:1fr; }
-    .reward-example__cell{ border-left:0; border-top:1px solid var(--line); }
-    .reward-example__cell:first-child{ border-top:0; }
+    .reward-examples{ grid-template-columns:1fr; }
     .reward-example__v{ white-space:normal; }
   }
 
@@ -676,7 +677,7 @@
       <h2 class="title anim" style="--d:.12s">ML training loop.</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 420" role="img" aria-label="The ML loop: data goes to training, training updates the model, the loss verifies it, and the update returns to training.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 420" role="img" aria-label="The ML loop: data goes to training, the loss verifies the model, and the update is gradient descent.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -701,7 +702,7 @@
         <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
         <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
-        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update</text>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update · gradient descent</text>
       </svg>
       <div class="edge-legend anim" style="--d:.42s">
         <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>
@@ -718,7 +719,7 @@
       <h2 class="title anim" style="--d:.12s">Verifiable rewards.</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the loss highlighted. In LLM pretraining the next token is the label and cross-entropy is the loss.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the loss highlighted. In LLM pretraining the next token is the label and cross-entropy is the loss. The update is gradient descent.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -743,28 +744,50 @@
         <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
         <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
-        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update</text>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update · gradient descent</text>
       </svg>
       <div class="edge-legend anim" style="--d:.42s">
         <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>
       </div>
-      <div class="reward-example anim" style="--d:.42s">
-        <div class="reward-example__head">
-          <span class="reward-example__title">LLM pretraining</span>
-          <span>next-token prediction</span>
+      <div class="reward-examples anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">LLM pretraining</span>
+            <span>next-token</span>
+          </div>
+          <div class="reward-example__rows">
+            <div class="reward-example__row">
+              <span class="reward-example__k">input</span>
+              <span class="reward-example__v">The capital of France is</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">label</span>
+              <span class="reward-example__v reward-example__v--accent">Paris</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">loss</span>
+              <span class="reward-example__v">−log p(Paris | input)</span>
+            </div>
+          </div>
         </div>
-        <div class="reward-example__row">
-          <div class="reward-example__cell">
-            <span class="reward-example__k">input</span>
-            <span class="reward-example__v">The capital of France is</span>
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Image classification</span>
+            <span>ImageNet</span>
           </div>
-          <div class="reward-example__cell">
-            <span class="reward-example__k">label · next token</span>
-            <span class="reward-example__v reward-example__v--accent">Paris</span>
-          </div>
-          <div class="reward-example__cell">
-            <span class="reward-example__k">loss</span>
-            <span class="reward-example__v">−log p(Paris | input)</span>
+          <div class="reward-example__rows">
+            <div class="reward-example__row">
+              <span class="reward-example__k">input</span>
+              <span class="reward-example__v">image</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">label</span>
+              <span class="reward-example__v reward-example__v--accent">cat</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">loss</span>
+              <span class="reward-example__v">−log p(cat | image)</span>
+            </div>
           </div>
         </div>
       </div>
