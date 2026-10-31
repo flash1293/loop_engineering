@@ -1149,7 +1149,7 @@
         <div class="reward-example">
           <div class="reward-example__head">
             <span class="reward-example__title">Lean 4</span>
-            <span>proof by induction</span>
+            <span>kernel: reject</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -1158,15 +1158,15 @@
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Prover</span>
-              <span class="reward-example__v">induction on xs</span>
+              <span class="reward-example__v">rfl</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Proof</span>
-              <span class="reward-example__v">nil: simp; cons: simp [ih, List.append_assoc]</span>
+              <span class="reward-example__v">rfl</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Kernel</span>
-              <span class="reward-example__v reward-example__v--accent">accept</span>
+              <span class="reward-example__v reward-example__v--accent">rfl failed; goal: (xs ++ ys).reverse = ys.reverse ++ xs.reverse</span>
             </div>
           </div>
         </div>
