@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light" />
-<title>Harness Engineering</title>
+<title>Loop Engineering</title>
 <style>
   :root{
     --paper:#f6f4ef;
@@ -288,39 +288,6 @@
     line-height:.94;
     letter-spacing:-.055em;
     font-weight:660;
-  }
-  .hero__old{
-    position:relative;
-    display:inline-block;
-    color:#b4aba1;
-    font-weight:560;
-    white-space:nowrap;
-  }
-  .hero__old::after{
-    content:"";
-    position:absolute;
-    left:-1.5%; top:53%;
-    width:0;
-    height:clamp(4px,.55vw,8px);
-    background:var(--accent);
-    border-radius:99px;
-    transform:rotate(-1.4deg);
-    transform-origin:left center;
-  }
-  .slide.active .hero__old::after{
-    width:103%;
-    transition:width .7s cubic-bezier(.65,0,.2,1) .85s;
-  }
-  .hero__new{
-    display:flex; align-items:baseline; gap:.18em;
-    color:var(--accent);
-    white-space:nowrap;
-  }
-  .hero__arrow{
-    font-size:.52em;
-    font-weight:400;
-    color:var(--faint);
-    transform:translateY(-.04em);
   }
   .presenter{
     display:flex; align-items:center; gap:12px;
@@ -639,7 +606,6 @@
       transition-delay:0s !important;
     }
     .slide{ transform:none; }
-    .hero__old::after{ width:103% !important; }
   }
 </style>
 </head>
@@ -677,10 +643,7 @@
     </header>
 
     <div class="hero">
-      <h1 class="hero__title">
-        <span class="hero__old">Loop Engineering</span>
-        <span class="hero__new"><span class="hero__arrow">→</span>Harness Engineering</span>
-      </h1>
+      <h1 class="hero__title">Loop Engineering</h1>
     </div>
 
   </section>
