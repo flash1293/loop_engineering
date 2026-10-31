@@ -770,8 +770,7 @@
       <div class="reward-examples anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">LLM pretraining</span>
-            <span>next-token</span>
+            <span class="reward-example__title">Example iteration 1</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -798,8 +797,7 @@
         </div>
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Decision tree</span>
-            <span>tabular</span>
+            <span class="reward-example__title">Example iteration 2</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -841,8 +839,7 @@
       <div class="reward-examples reward-examples--single anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Coding task</span>
-            <span>human correction</span>
+            <span class="reward-example__title">Example iteration</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -1039,7 +1036,7 @@
     <div class="stage">
       <div class="ai-sre-grid anim" style="--d:.3s">
         <div>
-          <svg class="diagram" viewBox="0 0 820 440" role="img" aria-label="AI SRE loop: alert to investigation to RCA to resolution. Resolution synthesizes learnings into the context wiki, which informs the next investigation. The resolution is human-triggered.">
+          <svg class="diagram" viewBox="0 0 820 440" role="img" aria-label="AI SRE loop: alert to investigation to report to resolution. Resolution synthesizes learnings into the context wiki, which informs the next investigation.">
             <rect class="d-box" x="20" y="70" width="180" height="76" rx="38"></rect>
             <circle cx="47" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
             <text x="47" y="112" text-anchor="middle" class="d-num">01</text>
@@ -1050,10 +1047,10 @@
             <text x="247" y="112" text-anchor="middle" class="d-num">02</text>
             <text x="271" y="114" class="d-title">Investigation</text>
 
-            <rect class="d-box" x="420" y="70" width="180" height="76" rx="38"></rect>
+            <rect class="d-box" x="420" y="70" width="180" height="76" rx="16"></rect>
             <circle cx="447" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
             <text x="447" y="112" text-anchor="middle" class="d-num">03</text>
-            <text x="471" y="114" class="d-title">RCA</text>
+            <text x="471" y="114" class="d-title">Report</text>
 
             <rect class="d-box" x="620" y="70" width="180" height="76" rx="38"></rect>
             <circle cx="647" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
@@ -1062,7 +1059,7 @@
 
             <path class="flow" d="M200,108 H216" marker-end="url(#arw-flow)"></path>
             <path class="flow" d="M400,108 H416" marker-end="url(#arw-flow)"></path>
-            <path class="human-flow" d="M600,108 H616" marker-end="url(#arw-human)"></path>
+            <path class="flow" d="M600,108 H616" marker-end="url(#arw-flow)"></path>
 
             <rect class="d-box" x="170" y="300" width="630" height="80" rx="16"></rect>
             <text x="485" y="326" text-anchor="middle" class="d-tag d-tag--accent">MEMORY</text>
@@ -1070,13 +1067,9 @@
 
             <path class="flow flow--accent" d="M710,146 V296" marker-end="url(#arw-accent)"></path>
             <text x="690" y="230" text-anchor="end" class="d-tag d-tag--accent">synthesize learnings</text>
-            <path class="loop pulse" d="M310,300 V152" marker-end="url(#arw-accent)"></path>
+            <path class="loop" d="M310,300 V152" marker-end="url(#arw-accent)"></path>
             <text x="330" y="230" class="d-tag d-tag--accent">next run</text>
           </svg>
-          <div class="edge-legend">
-            <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--human"></span>human</span>
-            <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>
-          </div>
         </div>
         <div class="media-placeholder">
           <span class="media-placeholder__label">Image placeholder</span>
@@ -1087,8 +1080,7 @@
       <div class="reward-examples reward-examples--single anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Checkout incident</span>
-            <span>wrong hypothesis → durable context</span>
+            <span class="reward-example__title">Example iteration</span>
           </div>
           <div class="reward-example__rows reward-example__rows--wide-labels">
             <div class="reward-example__row">
@@ -1140,7 +1132,7 @@
         <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
         <text x="423" y="136" class="d-title">Prover</text>
 
-        <rect class="d-box" x="615" y="92" width="220" height="76" rx="38"></rect>
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="16"></rect>
         <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
         <text x="673" y="136" class="d-title">Proof</text>
@@ -1159,8 +1151,7 @@
       <div class="reward-examples reward-examples--single anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Lean 4</span>
-            <span>kernel: reject</span>
+            <span class="reward-example__title">Example iteration</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -1208,7 +1199,7 @@
         <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
         <text x="423" y="136" class="d-title">Self-edit</text>
 
-        <rect class="d-box" x="615" y="92" width="220" height="76" rx="38"></rect>
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="16"></rect>
         <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
         <text x="673" y="136" class="d-title">Harness</text>
@@ -1227,8 +1218,7 @@
       <div class="reward-examples reward-examples--single anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Harness edit</span>
-            <span>one iteration</span>
+            <span class="reward-example__title">Example iteration</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -1302,7 +1292,7 @@
 const NODES = {
   intent:    { x:225,  y:130, num:'01', title:'Intent', human:true },
   agent:     { x:475,  y:130, num:'02', title:'Agent' },
-  codebase:  { x:725,  y:130, num:'03', title:'Codebase' },
+  codebase:  { x:725,  y:130, num:'03', title:'Codebase', art:true },
   check:     { x:975,  y:130, num:'04', title:'Checks' },
   checkHuman:{ x:975,  y:130, num:'04', title:'You check' },
   review:    { x:975,  y:280, num:'05', title:'Review agent' },
@@ -1406,7 +1396,7 @@ function nodeSVG(key, state){
   const numFill = state === 'current' ? 'rgba(210,69,30,.16)' : 'rgba(210,69,30,.09)';
 
   return `<g>
-    <rect class="${rectClass}" x="${cx-w/2}" y="${cy-38}" width="${w}" height="76" rx="38"></rect>
+    <rect class="${rectClass}" x="${cx-w/2}" y="${cy-38}" width="${w}" height="76" rx="${n.art ? 16 : 38}"></rect>
     <circle cx="${numX}" cy="${cy}" r="13.5" fill="${numFill}"></circle>
     <text x="${numX}" y="${cy+4}" text-anchor="middle" class="d-num">${n.num}</text>
     <text x="${labelX}" y="${cy+6}" class="d-title">${n.title}</text>
