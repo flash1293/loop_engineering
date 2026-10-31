@@ -1186,7 +1186,7 @@
       <h2 class="title anim" style="--d:.12s">Recursive self-improvement.</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 420" role="img" aria-label="Self-improvement loop: task suite to self-edit to harness to held-out eval, with a keep-or-revert feedback edge.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="Self-improvement loop: task suite to self-edit to harness to held-out eval, with a keep-or-revert feedback edge.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -1213,7 +1213,37 @@
         <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
         <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">keep / revert</text>
       </svg>
-      <div class="rsi-facts anim" style="--d:.42s">
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">AIDE²</span>
+            <span>rejected edit</span>
+          </div>
+          <div class="reward-example__rows">
+            <div class="reward-example__row">
+              <span class="reward-example__k">Task suite</span>
+              <span class="reward-example__v">AI R&amp;D benchmarks</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Self-edit</span>
+              <span class="reward-example__v">add pairwise LLM-judge tournaments</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Harness</span>
+              <span class="reward-example__v">new selection policy</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Held-out eval</span>
+              <span class="reward-example__v">0.654 vs 0.744</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Revert</span>
+              <span class="reward-example__v reward-example__v--accent">keep incumbent</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rsi-facts anim" style="--d:.48s">
         <div class="rsi-stat"><div class="rsi-stat__num">8 days</div><div class="rsi-stat__label">autonomous run</div></div>
         <div class="rsi-stat"><div class="rsi-stat__num">7</div><div class="rsi-stat__label">successive self-edits</div></div>
         <div class="rsi-stat"><div class="rsi-stat__num">55% → 32%</div><div class="rsi-stat__label">reward hacking</div></div>
