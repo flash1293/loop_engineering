@@ -582,6 +582,10 @@
     gap:clamp(24px,3.5vw,48px);
     width:100%;
   }
+  .ai-sre-grid .media-placeholder{ aspect-ratio:16/9; }
+  .reward-example__rows--wide-labels .reward-example__row{
+    grid-template-columns:110px minmax(0,1fr);
+  }
   .text-link{
     color:var(--accent);
     text-decoration:none;
@@ -1035,38 +1039,39 @@
     <div class="stage">
       <div class="ai-sre-grid anim" style="--d:.3s">
         <div>
-          <svg class="diagram" viewBox="0 0 760 440" role="img" aria-label="AI SRE loop: alert to investigation to RCA to resolution, then the context wiki for the next run. The resolution is human-triggered.">
-            <rect class="d-box" x="17.5" y="70" width="165" height="76" rx="38"></rect>
-            <circle cx="44" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="44" y="112" text-anchor="middle" class="d-num">01</text>
-            <text x="68" y="114" class="d-title">Alert</text>
+          <svg class="diagram" viewBox="0 0 820 440" role="img" aria-label="AI SRE loop: alert to investigation to RCA to resolution. Resolution synthesizes learnings into the context wiki, which informs the next investigation. The resolution is human-triggered.">
+            <rect class="d-box" x="20" y="70" width="180" height="76" rx="38"></rect>
+            <circle cx="47" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+            <text x="47" y="112" text-anchor="middle" class="d-num">01</text>
+            <text x="71" y="114" class="d-title">Alert</text>
 
-            <rect class="d-box" x="207.5" y="70" width="165" height="76" rx="38"></rect>
-            <circle cx="234" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="234" y="112" text-anchor="middle" class="d-num">02</text>
-            <text x="258" y="114" class="d-title">Investigation</text>
+            <rect class="d-box" x="220" y="70" width="180" height="76" rx="38"></rect>
+            <circle cx="247" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+            <text x="247" y="112" text-anchor="middle" class="d-num">02</text>
+            <text x="271" y="114" class="d-title">Investigation</text>
 
-            <rect class="d-box" x="397.5" y="70" width="165" height="76" rx="38"></rect>
-            <circle cx="424" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="424" y="112" text-anchor="middle" class="d-num">03</text>
-            <text x="448" y="114" class="d-title">RCA</text>
+            <rect class="d-box" x="420" y="70" width="180" height="76" rx="38"></rect>
+            <circle cx="447" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+            <text x="447" y="112" text-anchor="middle" class="d-num">03</text>
+            <text x="471" y="114" class="d-title">RCA</text>
 
-            <rect class="d-box" x="587.5" y="70" width="165" height="76" rx="38"></rect>
-            <circle cx="614" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="614" y="112" text-anchor="middle" class="d-num">04</text>
-            <text x="638" y="114" class="d-title">Resolution</text>
+            <rect class="d-box" x="620" y="70" width="180" height="76" rx="38"></rect>
+            <circle cx="647" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+            <text x="647" y="112" text-anchor="middle" class="d-num">04</text>
+            <text x="671" y="114" class="d-title">Resolution</text>
 
-            <path class="flow" d="M182.5,108 H203" marker-end="url(#arw-flow)"></path>
-            <path class="flow" d="M372.5,108 H393" marker-end="url(#arw-flow)"></path>
-            <path class="human-flow" d="M562.5,108 H583" marker-end="url(#arw-human)"></path>
+            <path class="flow" d="M200,108 H216" marker-end="url(#arw-flow)"></path>
+            <path class="flow" d="M400,108 H416" marker-end="url(#arw-flow)"></path>
+            <path class="human-flow" d="M600,108 H616" marker-end="url(#arw-human)"></path>
 
-            <rect class="d-box" x="170" y="300" width="420" height="80" rx="16"></rect>
-            <text x="380" y="326" text-anchor="middle" class="d-tag d-tag--accent">MEMORY</text>
-            <text x="380" y="354" text-anchor="middle" font-size="22" font-weight="600" letter-spacing="-.02em" fill="#191512">Context wiki</text>
+            <rect class="d-box" x="170" y="300" width="630" height="80" rx="16"></rect>
+            <text x="485" y="326" text-anchor="middle" class="d-tag d-tag--accent">MEMORY</text>
+            <text x="485" y="354" text-anchor="middle" font-size="22" font-weight="600" letter-spacing="-.02em" fill="#191512">Context wiki</text>
 
-            <path class="flow" d="M670,146 V240 Q670,260 650,260 H610 Q590,260 590,280 V296" marker-end="url(#arw-accent)" style="stroke:#d2451e;opacity:1"></path>
-            <path class="loop pulse" d="M290,300 V152" marker-end="url(#arw-accent)"></path>
-            <text x="310" y="230" class="d-tag d-tag--accent">next run</text>
+            <path class="flow flow--accent" d="M710,146 V296" marker-end="url(#arw-accent)"></path>
+            <text x="690" y="230" text-anchor="end" class="d-tag d-tag--accent">synthesize learnings</text>
+            <path class="loop pulse" d="M310,300 V152" marker-end="url(#arw-accent)"></path>
+            <text x="330" y="230" class="d-tag d-tag--accent">next run</text>
           </svg>
           <div class="edge-legend">
             <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--human"></span>human</span>
@@ -1079,8 +1084,38 @@
           <span class="media-placeholder__hint">replace with screenshot</span>
         </div>
       </div>
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Checkout incident</span>
+            <span>wrong hypothesis → durable context</span>
+          </div>
+          <div class="reward-example__rows reward-example__rows--wide-labels">
+            <div class="reward-example__row">
+              <span class="reward-example__k">Alert</span>
+              <span class="reward-example__v">checkout p95 latency &gt; 2 s</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Investigation</span>
+              <span class="reward-example__v">wrong: “database needs more capacity”</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Resolution</span>
+              <span class="reward-example__v">rollback works; new release added N+1 queries</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Context wiki</span>
+              <span class="reward-example__v reward-example__v--accent">checkout: check query count after deploys</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Next run</span>
+              <span class="reward-example__v">compare query count before scaling the database</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <footer class="foot anim" style="--d:.45s">
+    <footer class="foot anim" style="--d:.55s">
       <p class="note">Source: <a class="text-link" href="https://www.elastic.co/observability-labs/blog/ai-sre-elastic-nightshift" target="_blank" rel="noopener">Luca Wintergerst, Nightshift AI SRE (2026)</a>.</p>
     </footer>
   </section>
@@ -1270,33 +1305,34 @@ const NODES = {
   codebase:  { x:725,  y:130, num:'03', title:'Codebase' },
   check:     { x:975,  y:130, num:'04', title:'Checks' },
   checkHuman:{ x:975,  y:130, num:'04', title:'You check' },
-  review:    { x:1060, y:280, num:'05', title:'Review agent' },
-  qa:        { x:1060, y:420, num:'06', title:'Product QA' },
-  accept:    { x:1060, y:540, num:'H',  title:'Accept', w:190, human:true },
-  ship:      { x:820,  y:540, num:'07', title:'Ship' },
-  obs:       { x:520,  y:540, num:'08', title:'Observability' }
+  review:    { x:975,  y:280, num:'05', title:'Review agent' },
+  qa:        { x:975,  y:420, num:'06', title:'Product QA' },
+  accept:    { x:975,  y:540, num:'H',  title:'Accept', w:190, human:true },
+  ship:      { x:725,  y:540, num:'07', title:'Ship' },
+  obs:       { x:475,  y:540, num:'08', title:'Observability' }
 };
 
 const EDGES = {
   'intent-agent':   'M335,130 H359',
   'agent-codebase': 'M585,130 H609',
   'codebase-check': 'M835,130 H859',
-  'check-accept':   'M975,168 V190 Q975,210 995,210 H1040 Q1060,210 1060,230 V496',
-  'check-review':   'M1050,168 V236',
-  'review-accept':  'M1060,318 V496',
-  'review-qa':      'M1060,318 V376',
-  'qa-accept':      'M1060,458 V496',
-  'accept-ship':    'M965,540 H936',
-  'ship-obs':       'M710,540 H636',
+  'check-accept':   'M975,168 V496',
+  'check-review':   'M975,168 V236',
+  'review-accept':  'M975,318 V496',
+  'review-qa':      'M975,318 V376',
+  'qa-accept':      'M975,458 V496',
+  'accept-ship':    'M880,540 H841',
+  'ship-obs':       'M615,540 H591',
 };
 
-const ACCEPT_RETURN = 'M1060,578 V590 Q1060,600 1040,600 H90 Q70,600 70,580 V150 Q70,130 90,130 H104';
+const ACCEPT_RETURN = 'M975,578 V580 Q975,600 955,600 H90 Q70,600 70,580 V150 Q70,130 90,130 H104';
 
 const FEEDBACK = {
-  check:  { d:'M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174', lx:725, ly:203 },
-  review: { d:'M950,280 H900 Q880,280 880,260 V250 Q880,230 860,230 H495 Q475,230 475,210 V174', lx:725, ly:223 },
-  qa:     { d:'M950,420 H900 Q880,420 880,400 V270 Q880,250 860,250 H495 Q475,250 475,230 V174', lx:725, ly:243 },
-  obs:    { d:'M520,504 V310 Q520,290 495,290 V174', lx:548, ly:284 }
+  human:  { d:'M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174', lx:725, ly:203 },
+  check:  { d:'M930,168 V185 Q930,205 910,205 H495 Q475,205 475,185 V174', lx:700, ly:198 },
+  review: { d:'M865,280 H842 Q830,280 830,268 V247 Q830,235 818,235 H495 Q475,235 475,215 V174', lx:665, ly:228 },
+  qa:     { d:'M865,420 H812 Q800,420 800,408 V277 Q800,265 788,265 H495 Q475,265 475,245 V174', lx:650, ly:258 },
+  obs:    { d:'M475,502 V174', lx:495, ly:330, anchor:'start' }
 };
 
 const HUMAN_EDGES = new Set(['intent-agent','accept-ship']);
@@ -1312,7 +1348,7 @@ const STAGES = {
     nodes:[['intent','normal'],['agent','normal'],['codebase','normal'],['checkHuman','current']],
     edges:['intent-agent','agent-codebase','codebase-check'],
     accentEdges:['agent-codebase','codebase-check'],
-    feedback:[{key:'check', current:true, label:'correction', human:true}],
+    feedback:[{key:'human', current:true, label:'correction', human:true}],
     legend:'both',
     aria:'Human verifier: intent and the codebase go to the agent, the human checks the change, and the correction returns.'
   },
@@ -1384,7 +1420,7 @@ function feedbackSVG(f){
   const marker = human ? 'arw-human' : (f.current ? 'arw-accent' : 'arw-dim');
   let out = `<path class="${cls}" d="${def.d}" marker-end="url(#${marker})"></path>`;
   if(f.current && f.label){
-    out += `<text x="${def.lx}" y="${def.ly}" text-anchor="middle" class="${human ? 'd-tag' : 'd-tag d-tag--accent'}">${f.label}</text>`;
+    out += `<text x="${def.lx}" y="${def.ly}" text-anchor="${def.anchor || 'middle'}" class="${human ? 'd-tag' : 'd-tag d-tag--accent'}">${f.label}</text>`;
   }
   return out;
 }
