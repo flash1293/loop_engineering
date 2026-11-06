@@ -135,6 +135,25 @@
     text-wrap:balance;
   }
   .interlude__lead{ color:rgba(255,255,255,.74); }
+  .interlude__value{
+    display:inline-block;
+    margin-top:.04em;
+    font-size:clamp(60px,9vw,150px);
+    line-height:.9;
+    letter-spacing:-.06em;
+    font-variant-numeric:tabular-nums;
+  }
+  .interlude__parallel{
+    display:inline-block;
+    margin-top:.45em;
+    font-family:var(--mono);
+    font-size:clamp(13px,1.25vw,18px);
+    font-weight:400;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.74);
+    font-variant-numeric:tabular-nums;
+  }
   body.is-interlude .progress{ background:rgba(255,255,255,.18); }
   body.is-interlude .progress__fill{ background:#fff; }
   body.is-interlude .dots__dot{ background:rgba(255,255,255,.6); opacity:.55; }
@@ -527,18 +546,23 @@
     gap:10px;
     min-width:0;
   }
-  .session-log__head{
-    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    padding-bottom:7px;
+  .session-log__prompt{
+    padding-bottom:9px;
     border-bottom:1px solid var(--line);
     font-family:var(--mono);
+    font-size:clamp(12px,1vw,13px);
+    line-height:1.45;
+    color:var(--ink);
+  }
+  .session-log__prompt-label{
+    display:block;
+    margin-bottom:5px;
     font-size:12px;
     letter-spacing:.1em;
     text-transform:uppercase;
-    color:var(--muted);
+    color:var(--accent);
+    font-weight:700;
   }
-  .session-log__title{ color:var(--accent); font-weight:700; }
-  .session-log__meta{ color:var(--faint); }
   .session-log__body{
     margin:0;
     font-family:var(--mono);
@@ -583,15 +607,12 @@
   .qa-log__fail{ color:var(--accent); }
   .qa-log__pass{ color:var(--green); }
 
-  /* ---------- how to ---------- */
-  .howto-grid{
-    grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
-    align-items:start;
-  }
+  /* ---------- current setup ---------- */
   .howto-list{
     list-style:none;
     margin:0;
     padding:0;
+    width:min(100%,1080px);
     display:flex;
     flex-direction:column;
     gap:clamp(12px,1.8vh,20px);
@@ -619,65 +640,6 @@
     color:var(--ink);
     text-wrap:pretty;
   }
-  .howto-item--key p{ color:var(--accent); }
-  .howto-item__sub{
-    margin-top:7px;
-    font-family:var(--mono);
-    font-size:clamp(13px,.95vw,15px);
-    line-height:1.45;
-    letter-spacing:-.005em;
-    color:var(--muted);
-    text-wrap:pretty;
-  }
-  .logo-cloud-wrap{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    width:100%;
-    min-width:0;
-  }
-  .logo-cloud{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:12px;
-  }
-  .logo-chip{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    width:100%;
-    min-width:0;
-    padding:7px 10px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    background:rgba(255,253,248,.55);
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:.01em;
-    color:var(--muted);
-    white-space:nowrap;
-  }
-  .logo-chip img{
-    width:24px;
-    height:24px;
-    object-fit:contain;
-    flex:none;
-    filter:brightness(0);
-    opacity:.82;
-  }
-  .logo-chip--tile img{
-    filter:grayscale(1) contrast(1.05);
-    mix-blend-mode:darken;
-    opacity:.85;
-  }
-  .logo-cloud__note{
-    margin:0;
-    font-family:var(--mono);
-    font-size:12px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--faint);
-  }
 
   .media-placeholder{
     position:relative;
@@ -703,205 +665,6 @@
   }
   .media-placeholder__label{ color:var(--muted); }
   .media-placeholder__hint{ font-size:9px; letter-spacing:.07em; }
-  .ai-sre-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
-    align-items:center;
-    gap:clamp(24px,3.5vw,48px);
-    width:100%;
-  }
-  .sre-stage{
-    justify-content:flex-start;
-    padding-top:clamp(24px,4vh,48px);
-  }
-
-  .context-card{
-    width:100%;
-    border:1px solid var(--line-strong);
-    border-radius:14px;
-    background:rgba(255,253,248,.55);
-    padding:clamp(16px,2.2vh,24px) clamp(18px,2vw,26px);
-    display:flex;
-    flex-direction:column;
-    gap:clamp(6px,1vh,10px);
-  }
-  .context-card__head{
-    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    padding-bottom:8px;
-    border-bottom:1px solid var(--line);
-    font-family:var(--mono);
-    font-size:9.5px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .context-card__title{ color:var(--accent); font-weight:700; }
-  .context-card__step{
-    display:grid;
-    grid-template-columns:88px minmax(0,1fr);
-    gap:12px;
-    align-items:baseline;
-  }
-  .context-card__k{
-    font-family:var(--mono);
-    font-size:9px;
-    letter-spacing:.13em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .context-card__v{
-    font-family:var(--mono);
-    font-size:clamp(11px,1vw,13px);
-    line-height:1.4;
-    color:var(--ink);
-  }
-  .context-card__step--accent .context-card__v{ color:var(--accent); font-weight:600; }
-  .context-card__arrow{
-    padding-left:100px;
-    font-family:var(--mono);
-    font-size:12px;
-    line-height:1;
-    color:var(--accent);
-  }
-  .context-card__note{
-    margin-top:4px;
-    padding-top:9px;
-    border-top:1px solid var(--line);
-    font-family:var(--mono);
-    font-size:clamp(10px,.9vw,12px);
-    line-height:1.5;
-    color:var(--muted);
-  }
-  .context-card__note strong{ color:var(--ink); font-weight:600; }
-
-  /* ---------- decision trees ---------- */
-  .dt-stage{
-    display:flex; flex-direction:column;
-    gap:clamp(10px,1.7vh,18px);
-    width:100%;
-  }
-  .dt-pair{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:clamp(18px,2.8vw,44px);
-    width:100%;
-  }
-  .dt-panel{
-    margin:0; min-width:0;
-    display:flex; flex-direction:column;
-    gap:clamp(6px,1vh,10px);
-  }
-  .dt-cap{
-    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-    padding-bottom:6px;
-    border-bottom:1px solid var(--line-strong);
-    font-family:var(--mono);
-    font-size:9.5px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .dt-cap__k{ color:var(--ink); font-weight:700; }
-  .dt-cap__k--accent{ color:var(--accent); }
-  .dt-map{ max-height:min(46vh,430px); }
-  .dt-label{
-    font-family:var(--sans);
-    font-size:14px;
-    font-weight:600;
-    fill:var(--ink);
-    letter-spacing:-.015em;
-  }
-  .flow--gone{ stroke:var(--line-strong); stroke-dasharray:4 5; opacity:.55; }
-  .dt-flow{ stroke-dasharray:none; stroke-width:1.6; }
-  .dt-flow--alt{ stroke:var(--line-strong); stroke-dasharray:none; stroke-width:1.4; opacity:1; }
-  .dt-ok{
-    font-family:var(--sans);
-    font-size:13px;
-    fill:var(--accent);
-  }
-  .dt-cond{
-    font-family:var(--mono);
-    font-size:10.5px;
-    letter-spacing:.02em;
-    fill:var(--muted);
-  }
-  .dt-cond--accent{ fill:var(--accent); }
-  .dt-added,
-  .dt-pruned{
-    font-family:var(--mono);
-    font-size:9.5px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-  }
-  .dt-added{ fill:var(--accent); }
-  .dt-pruned{ fill:var(--faint); }
-  .dt-legend{
-    display:flex; flex-wrap:wrap; align-items:center;
-    gap:4px 18px;
-    width:100%;
-    padding-top:clamp(7px,1.2vh,12px);
-    border-top:1px solid var(--line);
-    font-family:var(--mono);
-    font-size:9.5px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-  .dt-legend__item{ display:inline-flex; align-items:baseline; gap:6px; }
-  .dt-legend__item:last-child{ color:var(--faint); }
-  .dt-legend__key{ color:var(--ink); letter-spacing:0; }
-  .dt-legend__ok{ color:var(--accent); letter-spacing:0; }
-  .dt-rules{
-    list-style:none;
-    margin:0; padding:0;
-    display:flex; flex-direction:column;
-    gap:clamp(10px,1.7vh,18px);
-  }
-  .dt-rule{
-    display:grid;
-    grid-template-columns:66px minmax(0,1fr);
-    gap:14px;
-    padding-bottom:clamp(9px,1.4vh,14px);
-    border-bottom:1px solid var(--line);
-  }
-  .dt-rule:last-child{ border-bottom:0; padding-bottom:0; }
-  .dt-rule__k{
-    padding-top:3px;
-    font-family:var(--mono);
-    font-size:9px;
-    letter-spacing:.13em;
-    text-transform:uppercase;
-    color:var(--accent);
-    font-weight:700;
-  }
-  .dt-rule__t{
-    font-size:clamp(13px,1.05vw,15px);
-    line-height:1.5;
-    color:var(--muted);
-    text-wrap:pretty;
-  }
-  .dt-path{
-    font-family:var(--mono);
-    font-size:.92em;
-    color:var(--ink);
-  }
-  .dt-rules--row{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:clamp(14px,2vw,32px);
-  }
-  .dt-rules--row .dt-rule{
-    display:flex; flex-direction:column;
-    gap:5px;
-    border-bottom:0;
-    padding-bottom:0;
-  }
-  .dt-rules--row .dt-rule__k{ padding-top:0; }
-  .dt-rules--row .dt-rule__t{
-    font-size:clamp(11.5px,.92vw,13px);
-    line-height:1.45;
-  }
-
   /* ---------- kibana sentry triage ---------- */
   .triage-grid{
     display:grid;
@@ -963,13 +726,102 @@
   .text-panel p:first-child,
   .text-panel p:last-child{ color:var(--ink); }
 
+  /* ---------- interim bullets ---------- */
+  .slide.slide--bullets{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .bullet-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    width:min(100%,1040px);
+    display:flex;
+    flex-direction:column;
+    gap:clamp(20px,3.4vh,36px);
+  }
+  .bullet-list__item{
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    gap:18px;
+    align-items:start;
+    font-size:clamp(26px,2.7vw,42px);
+    line-height:1.15;
+    letter-spacing:-.03em;
+    color:var(--ink);
+    text-wrap:pretty;
+  }
+  .bullet-list__item::before{
+    content:"";
+    width:24px;
+    height:2px;
+    margin-top:.62em;
+    background:var(--accent);
+  }
+
+  /* ---------- problems ---------- */
+  .problem-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    width:min(100%,1080px);
+    display:flex;
+    flex-direction:column;
+    gap:clamp(12px,2vh,18px);
+  }
+  .problem-item{
+    display:grid;
+    grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+    gap:clamp(20px,3vw,40px);
+    padding:clamp(14px,2.2vh,22px) 0;
+    border-top:1px solid var(--line-strong);
+  }
+  .problem-item:last-child{ border-bottom:1px solid var(--line-strong); }
+  .problem-item__label{
+    display:block;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .problem-item__title{
+    margin:6px 0 0;
+    font-size:clamp(22px,2.1vw,32px);
+    line-height:1.1;
+    letter-spacing:-.025em;
+    color:var(--ink);
+  }
+  .problem-item__text{
+    margin:5px 0 0;
+    font-size:clamp(14px,1.15vw,17px);
+    line-height:1.45;
+    color:var(--muted);
+    text-wrap:pretty;
+  }
+  .problem-item__solution{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-left:clamp(16px,2vw,26px);
+    border-left:1px solid var(--line);
+  }
+  .problem-item__solution .problem-item__label{ color:var(--accent); }
+  .problem-item__solution p{
+    margin:6px 0 0;
+    font-size:clamp(16px,1.35vw,21px);
+    line-height:1.25;
+    letter-spacing:-.015em;
+    color:var(--ink);
+    text-wrap:pretty;
+  }
+
   /* ---------- minimum type sizes ---------- */
   .kicker, .presenter, .nav__count, .chip,
   .d-num, .d-tag, .d-sub,
   .reward-example__head, .reward-example__k, .edge-legend,
   .detail-item__num, .media-placeholder, .media-placeholder__hint,
-  .context-card__head, .context-card__k,
-  .dt-cap, .dt-added, .dt-pruned, .dt-legend, .dt-rule__k,
   .triage-cap{
     font-size:12px;
   }
@@ -977,13 +829,7 @@
   .d-sub{ font-size:13px; }
   .d-code{ font-size:13px; }
   .d-val{ font-size:13.5px; }
-  .dt-cond{ font-size:12.5px; }
-  .context-card__v{ font-size:14px; }
-  .context-card__note{ font-size:13px; }
   .reward-example__v{ font-size:14px; }
-  .dt-label{ font-size:15px; }
-  .sre-stage .d-tag{ font-size:16px; }
-  .sre-stage .d-num{ font-size:16px; }
   .triage-map .d-code{ font-size:15px; }
   .triage-map .d-val{ font-size:16px; }
   .triage-map .d-sub{ font-size:15px; }
@@ -1070,10 +916,10 @@
       <div class="kicker"><span class="kicker__num">01</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">ML training loop.</h2>
+      <h2 class="title anim" style="--d:.12s">ML training loop</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 420" role="img" aria-label="The ML loop: data goes to training, the loss verifies the model, and the update is gradient descent.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 420" role="img" aria-label="The ML loop: data goes to training, the reward verifies the model, and the update is gradient descent.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -1084,7 +930,7 @@
         <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
         <text x="423" y="136" class="d-title">Training</text>
 
-        <rect class="d-box" x="615" y="92" width="220" height="76" rx="38"></rect>
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="16"></rect>
         <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
         <text x="673" y="136" class="d-title">Model</text>
@@ -1092,13 +938,13 @@
         <rect class="d-box" x="865" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="899" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="899" y="134" text-anchor="middle" class="d-num">04</text>
-        <text x="923" y="136" class="d-title">Loss</text>
+        <text x="923" y="136" class="d-title">Reward</text>
 
         <path class="flow" d="M335,130 H359" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
         <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
-        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update · gradient descent</text>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">update</text>
       </svg>
       <div class="edge-legend anim" style="--d:.42s">
         <span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>
@@ -1112,10 +958,10 @@
       <div class="kicker"><span class="kicker__num">02</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Verifiable rewards.</h2>
+      <h2 class="title anim" style="--d:.12s">Verifiable rewards</h2>
     </div>
     <div class="stage">
-      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the loss highlighted. The examples show different labels, losses, and update mechanisms.">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="The same ML loop with the reward highlighted. The examples show different labels, rewards, and update mechanisms.">
         <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
@@ -1126,7 +972,7 @@
         <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
         <text x="423" y="136" class="d-title">Training</text>
 
-        <rect class="d-box" x="615" y="92" width="220" height="76" rx="38"></rect>
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="16"></rect>
         <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
         <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
         <text x="673" y="136" class="d-title">Model</text>
@@ -1134,7 +980,7 @@
         <rect class="d-box d-box--accent" x="865" y="92" width="220" height="76" rx="38"></rect>
         <circle cx="899" cy="130" r="13.5" fill="rgba(210,69,30,.16)"></circle>
         <text x="899" y="134" text-anchor="middle" class="d-num">04</text>
-        <text x="923" y="136" class="d-title">Loss</text>
+        <text x="923" y="136" class="d-title">Reward</text>
 
         <path class="flow" d="M335,130 H359" marker-end="url(#arw-flow)"></path>
         <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
@@ -1148,7 +994,7 @@
       <div class="reward-examples anim" style="--d:.42s">
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Example iteration 1</span>
+            <span class="reward-example__title">Example · language model</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
@@ -1164,7 +1010,7 @@
               <span class="reward-example__v reward-example__v--accent">predicts Lyon</span>
             </div>
             <div class="reward-example__row">
-              <span class="reward-example__k">Loss</span>
+              <span class="reward-example__k">Reward</span>
               <span class="reward-example__v">next-token error</span>
             </div>
             <div class="reward-example__row">
@@ -1175,28 +1021,70 @@
         </div>
         <div class="reward-example">
           <div class="reward-example__head">
-            <span class="reward-example__title">Example iteration 2</span>
+            <span class="reward-example__title">Example · reinforcement learning</span>
           </div>
           <div class="reward-example__rows">
             <div class="reward-example__row">
               <span class="reward-example__k">Data</span>
-              <span class="reward-example__v">income, credit → approve</span>
+              <span class="reward-example__v">CartPole: state → left / right</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Training</span>
-              <span class="reward-example__v">greedy splits</span>
+              <span class="reward-example__v">trial and error</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Model</span>
-              <span class="reward-example__v reward-example__v--accent">tree splits on income</span>
+              <span class="reward-example__v reward-example__v--accent">policy drops the pole after 8 steps</span>
             </div>
             <div class="reward-example__row">
-              <span class="reward-example__k">Loss</span>
-              <span class="reward-example__v">misclassification</span>
+              <span class="reward-example__k">Reward</span>
+              <span class="reward-example__v">0 · episode over</span>
             </div>
             <div class="reward-example__row">
               <span class="reward-example__k">Update</span>
-              <span class="reward-example__v">split on best feature</span>
+              <span class="reward-example__v">policy gradient</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · PRE-AGENTIC -->
+  <section class="slide" data-title="Pre-agentic software engineering" aria-hidden="true">
+    <header class="head anim" style="--d:.05s">
+      <div class="kicker"><span class="kicker__num">03</span><span class="kicker__rule"></span></div>
+    </header>
+    <div>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:32ch">Pre-agentic software engineering</h2>
+    </div>
+    <div class="stage">
+      <div class="workflow anim" style="--d:.3s" data-stage="preAgentic"></div>
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Example iteration</span>
+          </div>
+          <div class="reward-example__rows">
+            <div class="reward-example__row">
+              <span class="reward-example__k">Intent</span>
+              <span class="reward-example__v">add a /logout endpoint</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">You</span>
+              <span class="reward-example__v">write the handler by hand</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Codebase</span>
+              <span class="reward-example__v">admin sessions live in SSO</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">You check</span>
+              <span class="reward-example__v">admins stay logged in</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Correction</span>
+              <span class="reward-example__v reward-example__v--accent">revoke the SSO session too</span>
             </div>
           </div>
         </div>
@@ -1205,12 +1093,12 @@
   </section>
 
   <!-- 04 · HUMAN VERIFIER -->
-  <section class="slide" data-title="Human verifier" aria-hidden="true">
+  <section class="slide" data-title="You are the reward function" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">03</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">04</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Human verifier.</h2>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">When you are using Claude Code, you are the reward function</h2>
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="human"></div>
@@ -1246,13 +1134,33 @@
     </div>
   </section>
 
+  <!-- INTERLUDE · 1 MINUTE -->
+  <section class="slide slide--interlude" data-title="1 minute without human" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">loop without human supervision</span><br><span class="interlude__value">1 minute</span><br><span class="interlude__parallel">1 parallel stream of work</span></h2>
+  </section>
+
+  <!-- INTERIM · HUMAN → REWARD -->
+  <section class="slide slide--bullets" data-title="Human in the loop" aria-hidden="true">
+    <ul class="bullet-list anim" style="--d:.18s">
+      <li class="bullet-list__item">Human in the loop: slow</li>
+      <li class="bullet-list__item">Remove human from the loop, automate the reward</li>
+      <li class="bullet-list__item">Make the loop run as long as possible on its own</li>
+      <li class="bullet-list__item">Become manager of loops</li>
+    </ul>
+  </section>
+
+  <!-- INTERLUDE · DEVELOPMENT WORKFLOW -->
+  <section class="slide slide--interlude" data-title="Current development workflow" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s">The next slides showcase my current development workflow<br><span class="interlude__lead">(work in progress)</span></h2>
+  </section>
+
   <!-- 05 · CHECKS -->
   <section class="slide" data-title="Checks" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">04</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">05</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Automated checks.</h2>
+      <h2 class="title anim" style="--d:.12s">Deterministic checks</h2>
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="checks"></div>
@@ -1262,10 +1170,10 @@
   <!-- 06 · CHECKS DETAIL -->
   <section class="slide" data-title="Checks detail" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">05</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">06</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Checks: lint, unit, integration.</h2>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Checks: lint, unit, integration</h2>
     </div>
     <div class="stage">
       <div class="detail-grid anim" style="--d:.3s">
@@ -1276,43 +1184,54 @@
           <li class="detail-item"><span class="detail-item__num">04</span><div><div class="detail-item__title">Failures</div><p class="detail-item__text">Return to the agent with the failing output.</p></div></li>
         </ul>
         <div class="session-log">
-          <div class="session-log__head">
-            <span class="session-log__title">Session log · PR #299098</span>
-            <span class="session-log__meta">check loop · excerpt</span>
+          <div class="session-log__prompt">
+            <span class="session-log__prompt-label">Prompt</span>
+            Implement [...], push, and fix CI until unit tests and linting pass
           </div>
-          <pre class="session-log__body"><span class="log-time">[08:48:38]</span> <span class="log-label">TOOL RESULT</span>
-<span class="log-fail">Tests: 4 failed, 205 passed, 209 total</span>
+          <pre class="session-log__body"><span class="log-time">[08:48:38]</span> <span class="log-label">TOOL CALL</span>
+<span class="log-think">git push origin fix/checkout-latency</span>
 
-<span class="log-time">[08:48:54]</span> <span class="log-label">TOOL RESULT</span>
-<span class="log-fail">InvestigationUnavailableError: requires the Nightshift service account</span>
+<span class="log-time">[08:48:42]</span> <span class="log-label">TOOL RESULT</span>
+<span class="log-pass">pushed 1 commit · CI run #4821 queued</span>
 
-<span class="log-time">[08:49:10]</span> <span class="log-label">TOOL CALL</span>
-<span class="log-think">python3: s.replace("id: 'exec-1',", "effectiveIdentity: INVESTIGATOR_IDENTITY, id: 'exec-1'")</span>
+<span class="log-time">[08:48:48]</span> <span class="log-label">POLL CI</span>
+<span class="log-think">gh run watch 4821 --exit-status</span>
 
 <span class="log-time">[08:49:30]</span> <span class="log-label">TOOL RESULT</span>
-<span class="log-pass">Tests: 1475 passed, 1475 total</span>
+<span class="log-fail">CI failed · unit 4 failed, 205 passed · lint 1 error</span>
+<span class="log-fail">FAIL checkout.test.ts › clears SSO session · src/session.ts:88</span>
 
-<span class="log-time">[08:56:34]</span> <span class="log-label">TOOL RESULT</span>
-<span class="log-pass">✔ no eslint errors found</span>
+<span class="log-time">[08:50:18]</span> <span class="log-label">TOOL CALL</span>
+<span class="log-think">edit src/session.ts · revoke SSO before clearing cookie</span>
 
-<span class="log-time">[09:07:12]</span> <span class="log-label">ASSISTANT</span>
-<span class="log-think">C2 checks: server 1475/1475 · public 1108/1108</span>
-<span class="log-think">integration 65/65 · type check clean</span></pre>
+<span class="log-time">[08:50:31]</span> <span class="log-label">TOOL CALL</span>
+<span class="log-think">git push origin fix/checkout-latency</span>
+
+<span class="log-time">[08:50:41]</span> <span class="log-label">POLL CI</span>
+<span class="log-think">gh run watch 4822 --exit-status</span>
+
+<span class="log-time">[08:51:34]</span> <span class="log-label">TOOL RESULT</span>
+<span class="log-pass">CI passed · unit 1475/1475 · integration 65/65 · lint clean</span>
+
+<span class="log-time">[08:53:12]</span> <span class="log-label">ASSISTANT</span>
+<span class="log-accent">CI green · ready for review</span></pre>
         </div>
       </div>
     </div>
-    <footer class="foot anim" style="--d:.55s">
-      <p class="note">Agent session log excerpt: <a class="text-link" href="https://github.com/elastic/kibana/pull/299098" target="_blank" rel="noopener">elastic/kibana PR #299098</a>.</p>
-    </footer>
+  </section>
+
+  <!-- INTERLUDE · 5 MINUTES -->
+  <section class="slide slide--interlude" data-title="5 minutes without human" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">loop without human supervision</span><br><span class="interlude__value">5 minutes</span><br><span class="interlude__parallel">1 parallel stream of work</span></h2>
   </section>
 
   <!-- 07 · REVIEW -->
   <section class="slide" data-title="Review" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">06</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">07</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Review agent.</h2>
+      <h2 class="title anim" style="--d:.12s">Review agent</h2>
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="review"></div>
@@ -1322,10 +1241,10 @@
   <!-- 08 · REVIEW DETAIL -->
   <section class="slide" data-title="Libra review detail" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">07</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">08</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Review: Libra.</h2>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Review: Libra</h2>
     </div>
     <div class="stage">
       <div class="detail-grid anim" style="--d:.3s">
@@ -1351,13 +1270,18 @@
     </footer>
   </section>
 
+  <!-- INTERLUDE · 20 MINUTES -->
+  <section class="slide slide--interlude" data-title="20 minutes without human" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">loop without human supervision</span><br><span class="interlude__value">20 minutes</span><br><span class="interlude__parallel">2 parallel streams of work</span></h2>
+  </section>
+
   <!-- 09 · PRODUCT QA -->
   <section class="slide" data-title="Product QA" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">08</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">09</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Product QA.</h2>
+      <h2 class="title anim" style="--d:.12s">Product QA</h2>
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="product"></div>
@@ -1367,10 +1291,10 @@
   <!-- 10 · PRODUCT DETAIL -->
   <section class="slide" data-title="Product QA detail" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">09</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">10</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Product QA: local stack + Playwright.</h2>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Product QA: local stack + Playwright</h2>
     </div>
     <div class="stage">
       <div class="detail-grid anim" style="--d:.3s">
@@ -1399,13 +1323,18 @@
     </footer>
   </section>
 
+  <!-- INTERLUDE · 2 HOURS -->
+  <section class="slide slide--interlude" data-title="2 hours without human" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">loop without human supervision</span><br><span class="interlude__value">2 hours</span><br><span class="interlude__parallel">5 parallel streams of work</span></h2>
+  </section>
+
   <!-- 11 · OBSERVABILITY -->
   <section class="slide" data-title="Observability" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">10</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">11</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Observability.</h2>
+      <h2 class="title anim" style="--d:.12s">Observability</h2>
     </div>
     <div class="stage">
       <div class="workflow anim" style="--d:.3s" data-stage="ops"></div>
@@ -1415,10 +1344,10 @@
   <!-- 12 · OBSERVABILITY DETAIL -->
   <section class="slide" data-title="Observability detail" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">11</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">12</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Observability: Kibana Sentry.</h2>
+      <h2 class="title anim" style="--d:.12s;font-size:clamp(32px,4vw,56px);max-width:30ch">Observability: Kibana Sentry</h2>
     </div>
     <div class="stage">
       <div class="triage-grid anim" style="--d:.3s">
@@ -1488,334 +1417,86 @@
     </footer>
   </section>
 
-  <!-- 12 · HOW TO -->
-  <section class="slide" data-title="How to" aria-hidden="true">
-    <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">12</span><span class="kicker__rule"></span></div>
-    </header>
-    <div>
-      <h2 class="title anim" style="--d:.12s">How to.</h2>
-    </div>
-    <div class="stage">
-      <div class="detail-grid howto-grid anim" style="--d:.3s">
-        <ul class="howto-list">
-          <li class="howto-item"><span class="howto-item__mark"></span><p>Rapidly evolving ecosystem of tools</p></li>
-          <li class="howto-item"><span class="howto-item__mark"></span><p>Very dependent on your exact setup — self-coded integration wins (flexibility vs polish)</p></li>
-          <li class="howto-item"><span class="howto-item__mark"></span><div><p>Not really worth it right now — just build your own</p><div class="howto-item__sub">Start with the loop as a skill — then automate the deterministic parts with bash scripts or similar.</div></div></li>
-          <li class="howto-item"><span class="howto-item__mark"></span><p>Might change in the future with clear winners emerging</p></li>
-          <li class="howto-item howto-item--key"><span class="howto-item__mark"></span><p>Most important: let it run on itself — change, check, repeat. Make the loop as long as possible</p></li>
-        </ul>
-        <div class="logo-cloud-wrap">
-          <div class="logo-cloud" aria-hidden="true">
-            <span class="logo-chip"><img src="assets/logos/cursor.svg" alt=""><span>Cursor Cloud</span></span>
-            <span class="logo-chip"><img src="assets/logos/claude.svg" alt=""><span>Claude Code</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/codex.png" alt=""><span>Codex</span></span>
-            <span class="logo-chip"><img src="assets/logos/githubcopilot.svg" alt=""><span>Copilot</span></span>
-            <span class="logo-chip"><img src="assets/logos/devin.svg" alt=""><span>Devin</span></span>
-            <span class="logo-chip"><img src="assets/logos/jules.png" alt=""><span>Jules</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/factory.svg" alt=""><span>Factory</span></span>
-            <span class="logo-chip"><img src="assets/logos/augment.svg" alt=""><span>Augment</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/orca-icon.png" alt=""><span>Orca</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/conductor.png" alt=""><span>Conductor</span></span>
-            <span class="logo-chip"><img src="assets/logos/warp.svg" alt=""><span>Warp Oz</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/superset.png" alt=""><span>Superset</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/composio.png" alt=""><span>Composio</span></span>
-            <span class="logo-chip"><img src="assets/logos/vibekanban.svg" alt=""><span>Vibe Kanban</span></span>
-            <span class="logo-chip"><img src="assets/logos/nimbalyst.svg" alt=""><span>Nimbalyst</span></span>
-            <span class="logo-chip"><img src="assets/logos/openhands.svg" alt=""><span>OpenHands</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/amp.png" alt=""><span>Amp</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/cline.svg" alt=""><span>Cline</span></span>
-            <span class="logo-chip"><img src="assets/logos/replit.svg" alt=""><span>Replit</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/kiro.svg" alt=""><span>Kiro</span></span>
-            <span class="logo-chip"><img src="assets/logos/qodo.svg" alt=""><span>Qodo</span></span>
-            <span class="logo-chip"><img src="assets/logos/coderabbit.svg" alt=""><span>CodeRabbit</span></span>
-            <span class="logo-chip logo-chip--tile"><img src="assets/logos/greptile.png" alt=""><span>Greptile</span></span>
-            <span class="logo-chip"><img src="assets/logos/jetbrains.svg" alt=""><span>Junie</span></span>
-            <span class="logo-chip"><img src="assets/logos/zed.svg" alt=""><span>Zed</span></span>
-          </div>
-          <p class="logo-cloud__note">A sample, not exhaustive.</p>
-        </div>
-      </div>
-    </div>
-    <footer class="foot anim" style="--d:.55s">
-      <p class="note">Landscape as of late 2026. Logos are trademarks of their respective owners.</p>
-    </footer>
-  </section>
-
-  <!-- INTERLUDE -->
-  <section class="slide slide--interlude" data-title="If you can measure it" aria-hidden="true">
-    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">not only for software development</span><br>if you can measure success,<br>you can loop</h2>
-  </section>
-
-  <!-- 13 · SRE -->
-  <section class="slide" data-title="SRE" aria-hidden="true">
+  <!-- 12 · PROBLEMS -->
+  <section class="slide" data-title="Problems in practice" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">13</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">SRE.</h2>
+      <h2 class="title anim" style="--d:.12s">Problems in practice</h2>
     </div>
-    <div class="stage sre-stage">
-      <div class="ai-sre-grid anim" style="--d:.3s">
-        <div>
-          <svg class="diagram" viewBox="0 0 820 440" role="img" aria-label="The natural SRE flow: an alert starts an investigation, and the investigation produces a report.">
-            <rect class="d-box" x="20" y="70" width="180" height="76" rx="38"></rect>
-            <circle cx="47" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="47" y="112" text-anchor="middle" class="d-num">01</text>
-            <text x="71" y="114" class="d-title">Alert</text>
-
-            <rect class="d-box" x="220" y="70" width="180" height="76" rx="38"></rect>
-            <circle cx="247" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="247" y="112" text-anchor="middle" class="d-num">02</text>
-            <text x="271" y="114" class="d-title">Investigation</text>
-
-            <rect class="d-box" x="420" y="70" width="180" height="76" rx="16"></rect>
-            <circle cx="447" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="447" y="112" text-anchor="middle" class="d-num">03</text>
-            <text x="471" y="114" class="d-title">Report</text>
-
-            <path class="flow" d="M200,108 H216" marker-end="url(#arw-flow)"></path>
-            <path class="flow" d="M400,108 H416" marker-end="url(#arw-flow)"></path>
-          </svg>
-        </div>
-      </div>
-      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
-        <div class="reward-example">
-          <div class="reward-example__head">
-            <span class="reward-example__title">Single pass</span>
-            <span>run 1</span>
+    <div class="stage">
+      <ul class="problem-list anim" style="--d:.3s">
+        <li class="problem-item">
+          <div>
+            <p class="problem-item__title">Badly defined intent</p>
+            <p class="problem-item__text">What even should the code change do?</p>
           </div>
-          <div class="reward-example__rows reward-example__rows--wide-labels">
-            <div class="reward-example__row">
-              <span class="reward-example__k">Alert</span>
-              <span class="reward-example__v">checkout p95 latency &gt; 2 s</span>
-            </div>
-            <div class="reward-example__row">
-              <span class="reward-example__k">Investigation</span>
-              <span class="reward-example__v">tested “database needs capacity” · pool normal · query count not checked</span>
-            </div>
-            <div class="reward-example__row">
-              <span class="reward-example__k">Report</span>
-              <span class="reward-example__v">wrong: “scale the database” · confidence medium · blind spot: query count</span>
-            </div>
+          <div class="problem-item__solution">
+            <span class="problem-item__label">Solution</span>
+            <p>Think more about the “what”</p>
           </div>
-        </div>
-      </div>
+        </li>
+        <li class="problem-item">
+          <div>
+            <p class="problem-item__title">Drift</p>
+            <p class="problem-item__text">Lots of review agent loops lead to overly defensive code.</p>
+          </div>
+          <div class="problem-item__solution">
+            <span class="problem-item__label">Solution</span>
+            <p>Stop early, limit the maximum number of iterations</p>
+          </div>
+        </li>
+        <li class="problem-item">
+          <div>
+            <p class="problem-item__title">Missing context</p>
+            <p class="problem-item__text">Context is not available to the agent (e.g. this feature isn’t released yet, no need for a DB migration).</p>
+          </div>
+          <div class="problem-item__solution">
+            <span class="problem-item__label">Solution</span>
+            <p>Document everything where agents can get it (e.g. git repos)</p>
+          </div>
+        </li>
+      </ul>
     </div>
-    <footer class="foot anim" style="--d:.55s">
-      <p class="note">Source: <a class="text-link" href="https://www.elastic.co/observability-labs/blog/ai-sre-elastic-nightshift" target="_blank" rel="noopener">Luca Wintergerst, Nightshift AI SRE (2026)</a>.</p>
-    </footer>
   </section>
 
-  <!-- 14 · SRE LOOP -->
-  <section class="slide" data-title="SRE loop" aria-hidden="true">
+  <!-- 13 · MY CURRENT SETUP -->
+  <section class="slide" data-title="My current setup (changing often)" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">14</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">SRE loop.</h2>
+      <h2 class="title anim" style="--d:.12s">My current setup (changing often)</h2>
     </div>
-    <div class="stage sre-stage">
-      <div class="ai-sre-grid anim" style="--d:.3s">
-        <div>
-          <svg class="diagram" viewBox="0 0 820 440" role="img" aria-label="SRE loop: alert to investigation, then report, then resolution. The report (what happened) and the resolution (what fixed it) both feed the context — wiki, decision trees, runbooks — which informs the next investigation and the next report.">
-            <rect class="d-box" x="20" y="70" width="180" height="76" rx="38"></rect>
-            <circle cx="47" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="47" y="112" text-anchor="middle" class="d-num">01</text>
-            <text x="71" y="114" class="d-title">Alert</text>
-
-            <rect class="d-box" x="220" y="70" width="180" height="76" rx="38"></rect>
-            <circle cx="247" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="247" y="112" text-anchor="middle" class="d-num">02</text>
-            <text x="271" y="114" class="d-title">Investigation</text>
-
-            <rect class="d-box" x="420" y="70" width="180" height="76" rx="16"></rect>
-            <circle cx="447" cy="108" r="13.5" fill="rgba(210,69,30,.09)"></circle>
-            <text x="447" y="112" text-anchor="middle" class="d-num">03</text>
-            <text x="471" y="114" class="d-title">Report</text>
-
-            <rect class="d-box d-box--accent" x="620" y="70" width="180" height="76" rx="38"></rect>
-            <circle cx="647" cy="108" r="13.5" fill="rgba(210,69,30,.16)"></circle>
-            <text x="647" y="112" text-anchor="middle" class="d-num">04</text>
-            <text x="671" y="114" class="d-title">Resolution</text>
-
-            <path class="flow" d="M200,108 H216" marker-end="url(#arw-flow)"></path>
-            <path class="flow" d="M400,108 H416" marker-end="url(#arw-flow)"></path>
-            <path class="flow" d="M600,108 H616" marker-end="url(#arw-flow)"></path>
-
-            <rect class="d-box" x="170" y="300" width="630" height="80" rx="16"></rect>
-            <text x="485" y="322" text-anchor="middle" class="d-tag d-tag--accent">CONTEXT</text>
-            <text x="485" y="352" text-anchor="middle" font-size="20" font-weight="600" letter-spacing="-.02em" fill="#191512">Wiki · decision trees · runbooks</text>
-
-            <path class="flow flow--accent" d="M510,146 V296" marker-end="url(#arw-accent)"></path>
-            <text x="526" y="205" class="d-tag d-tag--accent">what happened</text>
-            <path class="flow flow--accent" d="M710,146 V296" marker-end="url(#arw-accent)"></path>
-            <text x="694" y="250" text-anchor="end" class="d-tag d-tag--accent">what fixed it</text>
-            <path class="loop" d="M310,300 V152" marker-end="url(#arw-accent)"></path>
-            <text x="294" y="230" text-anchor="end" class="d-tag d-tag--accent">next similar alert</text>
-          </svg>
-        </div>
-        <div class="context-card">
-          <div class="context-card__head">
-            <span class="context-card__title">Finding the correct resolution</span>
-            <span>after the alert</span>
-          </div>
-          <div class="context-card__step">
-            <span class="context-card__k">wait</span>
-            <span class="context-card__v">alert resolves · p95 back to baseline</span>
-          </div>
-          <div class="context-card__arrow">↓</div>
-          <div class="context-card__step">
-            <span class="context-card__k">search</span>
-            <span class="context-card__v">GitHub PRs · Slack thread · runbooks</span>
-          </div>
-          <div class="context-card__arrow">↓</div>
-          <div class="context-card__step context-card__step--accent">
-            <span class="context-card__k">confirm</span>
-            <span class="context-card__v">N+1 in release · rollback</span>
-          </div>
-          <div class="context-card__note">Wait for the alert to clear; GitHub and Slack explain what actually fixed it.</div>
-        </div>
-      </div>
-      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
-        <div class="reward-example">
-          <div class="reward-example__head">
-            <span class="reward-example__title">Recursive improvement</span>
-            <span>run 1 → run 2</span>
-          </div>
-          <div class="reward-example__rows reward-example__rows--wide-labels">
-            <div class="reward-example__row">
-              <span class="reward-example__k">Report · run 1</span>
-              <span class="reward-example__v">wrong: “scale the database” · confidence medium · blind spot: query count</span>
-            </div>
-            <div class="reward-example__row">
-              <span class="reward-example__k">Resolution</span>
-              <span class="reward-example__v">rollback; p95 back to baseline · root cause: N+1 in release · <span class="reward-example__v--accent">verified ✔</span></span>
-            </div>
-            <div class="reward-example__row">
-              <span class="reward-example__k">Context</span>
-              <span class="reward-example__v">checkout → check query count after deploys</span>
-            </div>
-            <div class="reward-example__row">
-              <span class="reward-example__k">Report · run 2</span>
-              <span class="reward-example__v">similar alert: <span class="reward-example__v--accent">“N+1 query in release”</span> · evidence: 4× queries · confidence high · no blind spot</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="stage">
+      <ul class="howto-list anim" style="--d:.3s">
+        <li class="howto-item"><span class="howto-item__mark"></span><p>Mac mini running continuously</p></li>
+        <li class="howto-item"><span class="howto-item__mark"></span><p>tmux sessions with pi (running Opus 5.5)</p></li>
+        <li class="howto-item"><span class="howto-item__mark"></span><p>Most of the looping done via skills and polling via scripts</p></li>
+        <li class="howto-item"><span class="howto-item__mark"></span><p>Slack bridge for notifications and pushing work to the agents</p></li>
+        <li class="howto-item"><span class="howto-item__mark"></span><p>Source of truth on GitHub (issues, PRs)</p></li>
+      </ul>
     </div>
-    <footer class="foot anim" style="--d:.55s">
-      <p class="note">Source: <a class="text-link" href="https://www.elastic.co/observability-labs/blog/ai-sre-elastic-nightshift" target="_blank" rel="noopener">Luca Wintergerst, Nightshift AI SRE (2026)</a>.</p>
-    </footer>
   </section>
 
-  <!-- 15 · DECISION TREES -->
-  <section class="slide" data-title="Decision trees" aria-hidden="true">
+  <!-- INTERLUDE · BOTTOM LINE -->
+  <section class="slide slide--interlude" data-title="Don't do the thing" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">the bottom line</span><br>Don’t do the thing,<br>build the loop that does the thing</h2>
+  </section>
+
+  <!-- INTERLUDE -->
+  <section class="slide slide--interlude" data-title="If you can measure it" aria-hidden="true">
+    <h2 class="interlude__text anim" style="--d:.2s"><span class="interlude__lead">not only for feature development</span><br>if you can measure success,<br>you can loop</h2>
+  </section>
+
+  <!-- 15 · FORMAL THEOREM PROVING -->
+  <section class="slide" data-title="Formal theorem proving" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">15</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Decision trees.</h2>
-    </div>
-    <div class="stage">
-      <div class="dt-stage anim" style="--d:.3s">
-        <div class="dt-pair">
-          <figure class="dt-panel">
-            <figcaption class="dt-cap"><span class="dt-cap__k">before</span><span>v1 · 6 nodes</span></figcaption>
-            <svg class="diagram dt-map" viewBox="0 0 560 420" role="img" aria-label="Decision tree v1 for high checkout latency: the symptom leads to a latency metrics query and a decision on which span dominates. The database branch checks pool metrics and concludes the database should scale; the app branch searches deploy and error logs.">
-              <rect class="d-box" x="175" y="0" width="210" height="42" rx="21"></rect>
-              <text x="280" y="26" text-anchor="middle" class="dt-label">checkout p95 &gt; 2 s</text>
-              <text x="165" y="26" text-anchor="end" class="d-sub">symptom</text>
-              <path class="flow" d="M280,42 V68" marker-end="url(#arw-flow)"></path>
-              <rect class="d-box" x="175" y="72" width="210" height="42" rx="14"></rect>
-              <text x="280" y="98" text-anchor="middle" class="dt-label">Query latency metrics</text>
-              <text x="165" y="98" text-anchor="end" class="d-sub">evidence</text>
-              <path class="flow" d="M280,114 V140" marker-end="url(#arw-flow)"></path>
-              <path class="d-box" d="M182,144 H378 L400,167 L378,190 H182 L160,167 Z"></path>
-              <text x="280" y="172" text-anchor="middle" class="dt-label">Where is the time spent?</text>
-              <text x="150" y="172" text-anchor="end" class="d-sub">decision</text>
-              <path class="flow" d="M230,190 V208 H125 V224" marker-end="url(#arw-flow)"></path>
-              <text x="222" y="204" text-anchor="end" class="dt-cond">db spans dominate</text>
-              <path class="flow" d="M330,190 V208 H452 V224" marker-end="url(#arw-flow)"></path>
-              <text x="358" y="204" class="dt-cond">app spans dominate</text>
-              <rect class="d-box" x="25" y="228" width="200" height="42" rx="14"></rect>
-              <text x="125" y="254" text-anchor="middle" class="dt-label">Check DB pool metrics</text>
-              <rect class="d-box" x="350" y="228" width="205" height="42" rx="14"></rect>
-              <text x="452" y="254" text-anchor="middle" class="dt-label">Search deploy logs</text>
-              <path class="flow" d="M125,270 V296" marker-end="url(#arw-flow)"></path>
-              <rect class="d-box" x="30" y="300" width="190" height="42" rx="21"></rect>
-              <text x="125" y="326" text-anchor="middle" class="dt-label">Scale the database</text>
-              <text x="125" y="366" text-anchor="middle" class="dt-pruned">dropped in v2</text>
-            </svg>
-          </figure>
-          <figure class="dt-panel">
-            <figcaption class="dt-cap"><span class="dt-cap__k dt-cap__k--accent">after</span><span>v2 · 8 nodes · 1 pruned</span></figcaption>
-            <svg class="diagram dt-map" viewBox="0 0 560 420" role="img" aria-label="Decision tree v2 after the investigation: the database branch now reads the slow query log, asks whether the query count grew since the deploy, and ends at an N+1 query in the release. The confirmed edges are marked with a check, and the old pool metrics check survives as the fallback branch.">
-              <rect class="d-box" x="175" y="0" width="210" height="42" rx="21"></rect>
-              <text x="280" y="26" text-anchor="middle" class="dt-label">checkout p95 &gt; 2 s</text>
-              <text x="165" y="26" text-anchor="end" class="d-sub">symptom</text>
-              <path class="flow flow--accent dt-flow" d="M280,42 V68" marker-end="url(#arw-accent)"></path>
-              <text x="290" y="64" class="dt-ok">✔</text>
-              <rect class="d-box" x="175" y="72" width="210" height="42" rx="14"></rect>
-              <text x="280" y="98" text-anchor="middle" class="dt-label">Query latency metrics</text>
-              <text x="165" y="98" text-anchor="end" class="d-sub">evidence</text>
-              <path class="flow flow--accent dt-flow" d="M280,114 V140" marker-end="url(#arw-accent)"></path>
-              <text x="290" y="136" class="dt-ok">✔</text>
-              <path class="d-box" d="M182,144 H378 L400,167 L378,190 H182 L160,167 Z"></path>
-              <text x="280" y="172" text-anchor="middle" class="dt-label">Where is the time spent?</text>
-              <text x="150" y="172" text-anchor="end" class="d-sub">decision</text>
-              <path class="flow flow--accent dt-flow" d="M230,190 V208 H125 V224" marker-end="url(#arw-accent)"></path>
-              <text x="222" y="204" text-anchor="end" class="dt-cond dt-cond--accent">✔ db spans dominate</text>
-              <path class="flow" d="M330,190 V208 H452 V224" marker-end="url(#arw-flow)"></path>
-              <text x="358" y="204" class="dt-cond">app spans dominate</text>
-              <rect class="d-box d-box--accent" x="20" y="228" width="210" height="42" rx="14"></rect>
-              <text x="125" y="254" text-anchor="middle" class="dt-label">Query slow query log</text>
-              <text x="238" y="254" class="dt-added">+ new branch</text>
-              <rect class="d-box" x="350" y="228" width="205" height="42" rx="14"></rect>
-              <text x="452" y="254" text-anchor="middle" class="dt-label">Search deploy logs</text>
-              <path class="flow flow--accent dt-flow" d="M125,270 V296" marker-end="url(#arw-accent)"></path>
-              <text x="135" y="292" class="dt-ok">✔</text>
-              <path class="d-box" d="M27,300 H223 L245,323 L223,346 H27 L5,323 Z"></path>
-              <text x="125" y="328" text-anchor="middle" class="dt-label">Queries up since deploy?</text>
-              <path class="flow flow--accent dt-flow" d="M115,346 V368" marker-end="url(#arw-accent)"></path>
-              <text x="107" y="357" text-anchor="end" class="dt-cond dt-cond--accent">✔ yes</text>
-              <path class="flow dt-flow--alt" d="M175,346 V362 H410 V368" marker-end="url(#arw-flow)"></path>
-              <text x="183" y="357" class="dt-cond">no</text>
-              <rect class="d-box d-box--accent" x="15" y="372" width="200" height="42" rx="21"></rect>
-              <text x="115" y="398" text-anchor="middle" class="dt-label">N+1 query in release</text>
-              <text x="225" y="398" class="d-sub">end</text>
-              <rect class="d-box" x="310" y="372" width="200" height="42" rx="14"></rect>
-              <text x="410" y="398" text-anchor="middle" class="dt-label">Check DB pool metrics</text>
-            </svg>
-          </figure>
-        </div>
-        <div class="dt-legend">
-          <span class="dt-legend__item"><span class="dt-legend__key">([ ])</span>symptom</span>
-          <span class="dt-legend__item"><span class="dt-legend__key">[ ]</span>evidence</span>
-          <span class="dt-legend__item"><span class="dt-legend__key">{{ }}</span>decision</span>
-          <span class="dt-legend__item"><span class="dt-legend__key">(( ))</span>end</span>
-          <span class="dt-legend__item"><span class="dt-legend__ok">✔</span>confirmed causal path</span>
-        </div>
-        <ul class="dt-rules dt-rules--row">
-          <li class="dt-rule"><span class="dt-rule__k">write</span><span class="dt-rule__t">After the run a second agent distills the transcript into a Mermaid tree and merges it into the one for that symptom.</span></li>
-          <li class="dt-rule"><span class="dt-rule__k">follow</span><span class="dt-rule__t">The next similar alert opens that tree as a lead to confirm, not an answer key.</span></li>
-          <li class="dt-rule"><span class="dt-rule__k">boost</span><span class="dt-rule__t">Edges on the verified causal path are marked <span class="dt-path">✔</span> and stay.</span></li>
-          <li class="dt-rule"><span class="dt-rule__k">prune</span><span class="dt-rule__t">Dead leads collapse, new evidence is added; a rewrite that drops more than 30% of the nodes is rejected.</span></li>
-        </ul>
-      </div>
-    </div>
-    <footer class="foot anim" style="--d:.55s">
-      <p class="note">Source: <a class="text-link" href="https://github.com/elastic/kibana/tree/main/x-pack/solutions/observability/plugins/nightshift_investigations/server/decision_trees" target="_blank" rel="noopener">elastic/kibana — nightshift decision trees</a>.</p>
-    </footer>
-  </section>
-
-  <!-- 16 · FORMAL THEOREM PROVING -->
-  <section class="slide" data-title="Formal theorem proving" aria-hidden="true">
-    <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">16</span><span class="kicker__rule"></span></div>
-    </header>
-    <div>
-      <h2 class="title anim" style="--d:.12s">Formal theorem proving.</h2>
+      <h2 class="title anim" style="--d:.12s">Formal theorem proving</h2>
     </div>
     <div class="stage">
       <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="Formal theorem-proving loop: theorem to prover to proof to kernel, with a reject-and-edit feedback edge.">
@@ -1876,13 +1557,13 @@
     </footer>
   </section>
 
-  <!-- 17 · POINT THE LOOP AT ITSELF -->
+  <!-- 16 · POINT THE LOOP AT ITSELF -->
   <section class="slide" data-title="Recursive self-improvement" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">17</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">16</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Recursive self-improvement.</h2>
+      <h2 class="title anim" style="--d:.12s">Recursive self-improvement</h2>
     </div>
     <div class="stage">
       <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="Self-improvement loop: task suite to self-edit to harness to held-out eval, with a keep-or-revert feedback edge.">
@@ -1947,13 +1628,81 @@
     </footer>
   </section>
 
+  <!-- 17 · RECURSIVE MODEL IMPROVEMENT -->
+  <section class="slide" data-title="Recursive model improvement" aria-hidden="true">
+    <header class="head anim" style="--d:.05s">
+      <div class="kicker"><span class="kicker__num">17</span><span class="kicker__rule"></span></div>
+    </header>
+    <div>
+      <h2 class="title anim" style="--d:.12s">Recursive model improvement</h2>
+    </div>
+    <div class="stage">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 220" role="img" aria-label="Model-improvement loop: a training recipe goes to an optimizer, the optimizer trains a new model, and benchmarks reward whether it improved before the result loops back to the optimizer.">
+        <rect class="d-box" x="115" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="149" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="149" y="134" text-anchor="middle" class="d-num">01</text>
+        <text x="173" y="136" class="d-title">Recipe</text>
+
+        <rect class="d-box" x="365" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="399" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="399" y="134" text-anchor="middle" class="d-num">02</text>
+        <text x="423" y="136" class="d-title">Optimizer</text>
+
+        <rect class="d-box" x="615" y="92" width="220" height="76" rx="16"></rect>
+        <circle cx="649" cy="130" r="13.5" fill="rgba(210,69,30,.09)"></circle>
+        <text x="649" y="134" text-anchor="middle" class="d-num">03</text>
+        <text x="673" y="136" class="d-title">Model</text>
+
+        <rect class="d-box d-box--accent" x="865" y="92" width="220" height="76" rx="38"></rect>
+        <circle cx="899" cy="130" r="13.5" fill="rgba(210,69,30,.16)"></circle>
+        <text x="899" y="134" text-anchor="middle" class="d-num">04</text>
+        <text x="923" y="136" class="d-title">Benchmarks</text>
+
+        <path class="flow" d="M335,130 H359" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M585,130 H609" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M835,130 H859" marker-end="url(#arw-flow)"></path>
+        <path class="loop pulse" d="M975,168 V190 Q975,210 955,210 H495 Q475,210 475,190 V174" marker-end="url(#arw-accent)"></path>
+        <text x="725" y="203" text-anchor="middle" class="d-tag d-tag--accent">keep / revert</text>
+      </svg>
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Example iteration</span>
+          </div>
+          <div class="reward-example__rows reward-example__rows--wide-labels">
+            <div class="reward-example__row">
+              <span class="reward-example__k">Recipe</span>
+              <span class="reward-example__v">baseline · 8k steps · lr 3e-4</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Optimizer</span>
+              <span class="reward-example__v">40% code in the data mix</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Model</span>
+              <span class="reward-example__v">retrained on the new mix</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Benchmarks</span>
+              <span class="reward-example__v">SWE-bench +2.1% · math +0.8%</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Keep / revert</span>
+              <span class="reward-example__v"><span class="reward-example__v--accent">keep</span> · new recipe becomes the baseline</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 18 · QR -->
   <section class="slide" data-title="Open the deck" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">18</span><span class="kicker__rule"></span></div>
     </header>
     <div>
-      <h2 class="title anim" style="--d:.12s">Scan to open.</h2>
+      <h2 class="title anim" style="--d:.12s">Scan to open</h2>
     </div>
     <div class="stage">
       <div class="qr-panel anim" style="--d:.3s">
@@ -1992,6 +1741,7 @@ const NODES = {
   codebase:  { x:725,  y:130, num:'03', title:'Codebase', art:true },
   check:     { x:975,  y:130, num:'04', title:'Checks' },
   checkHuman:{ x:975,  y:130, num:'04', title:'You check' },
+  editor:    { x:475,  y:130, num:'02', title:'You (editor)', human:true },
   review:    { x:975,  y:280, num:'05', title:'Review agent' },
   qa:        { x:975,  y:420, num:'06', title:'Product QA' },
   accept:    { x:975,  y:540, num:'H',  title:'Accept', w:190, human:true },
@@ -2025,11 +1775,21 @@ const FEEDBACK = {
 const HUMAN_EDGES = new Set(['intent-agent','accept-ship']);
 
 function legendHTML(kind){
-  const human = kind === 'both';
-  return `<div class="edge-legend">${human ? '<span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--human"></span>human</span>' : ''}<span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span></div>`;
+  const human = kind === 'both' || kind === 'human';
+  const auto = kind === 'both' || kind === 'auto';
+  return `<div class="edge-legend">${human ? '<span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--human"></span>human</span>' : ''}${auto ? '<span class="edge-legend__item"><span class="edge-legend__line edge-legend__line--auto"></span>automated</span>' : ''}</div>`;
 }
 
 const STAGES = {
+  'preAgentic': {
+    vb:'100 40 1000 220',
+    nodes:[['intent','normal'],['editor','current'],['codebase','normal'],['checkHuman','normal']],
+    edges:['intent-agent','agent-codebase','codebase-check'],
+    humanEdges:['intent-agent','agent-codebase','codebase-check'],
+    feedback:[{key:'human', current:true, label:'correction', human:true}],
+    legend:'human',
+    aria:'Pre-agentic software engineering: intent goes to the human editor, the codebase changes, the human checks, and the correction returns.'
+  },
   'human': {
     vb:'100 40 1000 220',
     nodes:[['intent','normal'],['agent','normal'],['codebase','normal'],['checkHuman','current']],
@@ -2047,7 +1807,7 @@ const STAGES = {
     accentEdges:['codebase-check','check-accept'],
     feedback:[{key:'check', current:true, label:'fail → fix'}],
     returnFrom:'accept',
-    aria:'Automated checks: the human accept stays in the loop before ship.'
+    aria:'Deterministic checks: the human accept stays in the loop before ship.'
   },
   'review': {
     legend:'both',
@@ -2118,7 +1878,7 @@ function renderStage(config){
 
   (config.edges || []).forEach(key => {
     const accent = (config.accentEdges || []).includes(key);
-    const human = HUMAN_EDGES.has(key);
+    const human = HUMAN_EDGES.has(key) || (config.humanEdges || []).includes(key);
     const cls = human ? 'human-flow' : `flow ${accent ? 'flow--accent' : ''}`;
     const marker = human ? 'arw-human' : (accent ? 'arw-accent' : 'arw-flow');
     svg += `<path class="${cls}" d="${EDGES[key]}" marker-end="url(#${marker})"></path>`;
