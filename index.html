@@ -1659,10 +1659,82 @@
     </footer>
   </section>
 
-  <!-- 16 · POINT THE LOOP AT ITSELF -->
-  <section class="slide" data-title="Recursive self-improvement" aria-hidden="true">
+  <!-- 16 · AI SRE -->
+  <section class="slide" data-title="AI SRE" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
       <div class="kicker"><span class="kicker__num">16</span><span class="kicker__rule"></span></div>
+    </header>
+    <div>
+      <h2 class="title anim" style="--d:.12s">AI SRE</h2>
+    </div>
+    <div class="stage">
+      <svg class="diagram anim" style="--d:.3s" viewBox="100 40 1000 340" role="img" aria-label="AI SRE loop: an alert starts an investigation, which produces a report and a resolution. The report and resolution feed the context — wiki, runbooks, past incidents — which informs the next investigation.">
+        <rect class="d-box" x="115" y="80" width="220" height="72" rx="38"></rect>
+        <text x="225" y="122" text-anchor="middle" class="d-title">Alert</text>
+
+        <rect class="d-box" x="365" y="80" width="220" height="72" rx="38"></rect>
+        <text x="475" y="122" text-anchor="middle" class="d-title">Investigation</text>
+
+        <rect class="d-box" x="615" y="80" width="220" height="72" rx="16"></rect>
+        <text x="725" y="122" text-anchor="middle" class="d-title">Report</text>
+
+        <rect class="d-box d-box--accent" x="865" y="80" width="220" height="72" rx="38"></rect>
+        <text x="975" y="122" text-anchor="middle" class="d-title">Resolution</text>
+
+        <path class="flow" d="M335,116 H359" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M585,116 H609" marker-end="url(#arw-flow)"></path>
+        <path class="flow" d="M835,116 H859" marker-end="url(#arw-flow)"></path>
+
+        <rect class="d-box" x="200" y="290" width="800" height="66" rx="16"></rect>
+        <text x="600" y="314" text-anchor="middle" class="d-tag d-tag--accent">context</text>
+        <text x="600" y="342" text-anchor="middle" font-size="22" font-weight="600" letter-spacing="-.02em" fill="#191512">Wiki · runbooks · past incidents</text>
+
+        <path class="flow flow--accent" d="M715,152 V286" marker-end="url(#arw-accent)"></path>
+        <text x="700" y="225" text-anchor="end" class="d-tag d-tag--accent">what happened</text>
+        <path class="flow flow--accent" d="M975,152 V286" marker-end="url(#arw-accent)"></path>
+        <text x="960" y="225" text-anchor="end" class="d-tag d-tag--accent">what fixed it</text>
+        <path class="loop" d="M465,290 V156" marker-end="url(#arw-accent)"></path>
+        <text x="450" y="225" text-anchor="end" class="d-tag d-tag--accent">next similar alert</text>
+      </svg>
+      <div class="reward-examples reward-examples--single anim" style="--d:.42s">
+        <div class="reward-example">
+          <div class="reward-example__head">
+            <span class="reward-example__title">Example iteration</span>
+          </div>
+          <div class="reward-example__rows reward-example__rows--wide-labels">
+            <div class="reward-example__row">
+              <span class="reward-example__k">Alert</span>
+              <span class="reward-example__v">checkout p95 latency &gt; 2 s</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Investigation</span>
+              <span class="reward-example__v">DB pool normal · query count not checked</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Report</span>
+              <span class="reward-example__v">wrong: “scale the database” · confidence medium</span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Resolution</span>
+              <span class="reward-example__v">rollback; p95 back to baseline · root cause: N+1 in release · <span class="reward-example__v--accent">verified ✔</span></span>
+            </div>
+            <div class="reward-example__row">
+              <span class="reward-example__k">Context</span>
+              <span class="reward-example__v">check query count after deploys</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="foot anim" style="--d:.55s">
+      <p class="note">Source: <a class="text-link" href="https://www.elastic.co/observability-labs/blog/ai-sre-elastic-nightshift" target="_blank" rel="noopener">Luca Wintergerst, Nightshift AI SRE (2026)</a>.</p>
+    </footer>
+  </section>
+
+  <!-- 17 · POINT THE LOOP AT ITSELF -->
+  <section class="slide" data-title="Recursive self-improvement" aria-hidden="true">
+    <header class="head anim" style="--d:.05s">
+      <div class="kicker"><span class="kicker__num">17</span><span class="kicker__rule"></span></div>
     </header>
     <div>
       <h2 class="title anim" style="--d:.12s">Recursive self-improvement</h2>
@@ -1722,10 +1794,10 @@
     </footer>
   </section>
 
-  <!-- 17 · RECURSIVE MODEL IMPROVEMENT -->
+  <!-- 18 · RECURSIVE MODEL IMPROVEMENT -->
   <section class="slide" data-title="Recursive model improvement" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">17</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">18</span><span class="kicker__rule"></span></div>
     </header>
     <div>
       <h2 class="title anim" style="--d:.12s">Recursive model improvement</h2>
@@ -1782,10 +1854,10 @@
     </div>
   </section>
 
-  <!-- 18 · QR -->
+  <!-- 19 · QR -->
   <section class="slide" data-title="Open the deck" aria-hidden="true">
     <header class="head anim" style="--d:.05s">
-      <div class="kicker"><span class="kicker__num">18</span><span class="kicker__rule"></span></div>
+      <div class="kicker"><span class="kicker__num">19</span><span class="kicker__rule"></span></div>
     </header>
     <div>
       <h2 class="title anim" style="--d:.12s">Scan to open</h2>
